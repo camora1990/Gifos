@@ -1,0 +1,38 @@
+html {
+  font-size: 100%;
+}
+
+$pincipal-font-family: "Montserrat", sans-serif;
+$secondary-font-family: "Roboto", sans-serif;
+
+// colors
+$light-color: #fff;
+$primary-color: #fff;
+$secundary-color: #50e3c2;
+$background-color: #222326;
+$press-color:#9CAFC3;
+
+// font size destok
+$small-font-size-desktop: 0.85em;
+$medium-font-size-desktop: 1em;
+$normal-font-size-desktop: 1.125em;
+$small-subTitle-font-size-desktop: 1.5625em;
+$medium-subTitle-font-size-desktop: 1.875em;
+$title-font-size-desktop: 2.1875em;
+
+// font size mobile
+$small-font-size-mobile: 0.875em;
+$medium-font-size-mobile: 0.9375em;
+$normal-font-size-mobile: 1em;
+$small-subTitle-font-size-mobile: 1.25em;
+$title-font-size-mobile: 1.5625em;
+
+*{
+  box-sizing: border-box;
+  
+}
+
+body {
+  letter-spacing: 0;
+  background-color: #37383C;
+}

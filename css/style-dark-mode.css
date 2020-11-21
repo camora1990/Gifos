@@ -1,0 +1,14 @@
+/* Media Queries Mixin
+**********************/
+html {
+  font-size: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  letter-spacing: 0;
+  background-color: #37383C;
+}
