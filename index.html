@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script
+      src="https://kit.fontawesome.com/90cf718084.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style-dark-mode.css" id="mode-style" />
     <title>GIFOS</title>
   </head>
-  <body></body>
+  <body>
+    <div class="margin"></div>
+    <div class="container">
+      <header class="header">
+        <a class="header__logo" href="#">
+          <img src="assets/logos/logo-desktop.svg" alt="" />
+        </a>
+        <nav class="header__menu">
+          <ul>
+            <li><a id="change-mode" href="#">modo nocturno</a><span></span></li>
+            <li><a id="favorites" href="#">favoritos</a><span></span></li>
+            <li><a id="my-gifs" href="#">mis gifos</a><span></span></li>
+          </ul>
+        </nav>
+        <div class="header__add">
+          <i id="icon" class="fas fa-plus"></i>
+        </div>
+      </header>
+      <main class="principal--section">
+        <section class="main">
+          <div class="main__title">
+            <h1>
+              Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span>
+            </h1>
+          </div>
+          <div class="main__image">
+            <img src="assets/img/ilustra_header.svg" alt="" />
+          </div>
+          <div class="main__search">
+            <input type="text" />
+          </div>
+          <p>Trending:</p>
+          <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+        </section>
+      </main>
+    </div>
+    <script src="js/menu.js"></script>
+  </body>
 </html>

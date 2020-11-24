@@ -1,0 +1,161 @@
+.margin {
+  width: 100%;
+  height: 5px;
+  background-color: $primary-color;
+}
+
+.header {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  &__logo {
+    cursor: pointer;
+    width: 59px;
+    height: 59px;
+    font-size: 18px;
+    margin: 18px 40.8% 12px 10.8%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__menu {
+    display: flex;
+    margin: 36px 0 38px 0;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 22px;
+      li {
+        list-style: none;
+        margin-right: 40px;
+        height: 22px;
+        a {
+          cursor: pointer;
+          text-decoration: none;
+          font-size: $small-font-size-desktop;
+          color: $primary-color;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  &__add {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1px solid $primary-color;
+    display: grid;
+    place-items: center;
+    margin: 18px 10.8% 18px 10px;
+    background-color: $light-color;
+    i {
+      color: $primary-color;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+@include media(desktop-m) {
+  .header {
+    justify-content: space-between;
+    &__logo {
+      margin-right: 25%;
+      &__menu {
+        a {
+          font-size: 0.75em;
+        }
+      }
+    }
+  }
+}
+
+@include media(tablet) {
+  .header {
+    &__logo {
+      margin-right: 10%;
+      margin-left: 5%;
+      &__menu {
+        li {
+          margin-right: 20px;
+        }
+      }
+    }
+    &__add {
+      margin-right: 5%;
+    }
+  }
+}
+
+@include media(mobile) {
+  .header {
+    height: 95px;
+    width: 100%;
+    position: relative;
+    &__logo {
+      width: 48.8px;
+      height: 48.8px;
+      margin: 29px 68.4% 17.2px 22px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__menu {
+      display: none;
+      position: absolute;
+      margin: 0;
+      top: 100px;
+      z-index: 100;
+      height: 100vh;
+      width: 100%;
+      background-color: $primary-color;
+      opacity: 0.9;
+      padding-top: 17px;
+      ul {
+        text-align: center;
+        display: block;
+        width: 100%;
+        li {
+          display: block;
+          margin: 0;
+          height: 60px;
+          a {
+            color: $light-color;
+            font-size: $medium-font-size-mobile;
+            line-height: 60px;
+            font-weight: 700;
+          }
+          span {
+            display: block;
+            width: 10%;
+            height: 1px;
+            background-color: $light-color;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    &__add {
+      margin: 0;
+      position: absolute;
+      top: 47px;
+      right: 26px;
+      height: 15px;
+      width: 14px;
+      border: none;
+      i {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.show-menu {
+  display: block;
+}
