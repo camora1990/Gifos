@@ -109,7 +109,7 @@ body {
     margin-right: 5%;
   }
 }
-@media only screen and (max-width: 376px) {
+@media only screen and (max-width: 500px) {
   .header {
     height: 95px;
     width: 100%;
@@ -284,7 +284,7 @@ body {
     height: 100px;
   }
 }
-@media only screen and (max-width: 376px) {
+@media only screen and (max-width: 500px) {
   .main__title {
     width: 76.3%;
     height: 99px;
@@ -324,4 +324,95 @@ body {
     margin-bottom: 2px;
     font-size: 1em;
   }
+}
+.trending {
+  position: relative;
+  margin-top: 95px;
+  width: 100%;
+  height: 640px;
+  background-color: #F3F5F8;
+  padding-top: 67px;
+}
+.trending h3, .trending p {
+  width: 100%;
+  margin: 0 0 0 0;
+  text-align: center;
+  font-size: 1.5625em;
+  color: #572ee5;
+}
+.trending p {
+  margin: 12px 0 0 0;
+  font-size: 1.125em;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+}
+.trending i {
+  color: #572ee5;
+}
+.trending__back, .trending__next {
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 302px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #572ee5;
+}
+.trending__back, .trending__next {
+  right: 6%;
+}
+.trending__next {
+  left: 6%;
+}
+.trending__gifos {
+  position: relative;
+  margin: 53px auto;
+  width: 80%;
+  height: 275px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100%;
+  column-gap: 2%;
+}
+.trending__gifos .selected {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #572ee5;
+  opacity: 0.6;
+}
+.trending__gifos .item1, .trending__gifos .item3, .trending__gifos .item2 {
+  position: relative;
+}
+.trending__gifos .item1__icon, .trending__gifos .item3__icon, .trending__gifos .item2__icon {
+  opacity: 1;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.trending__gifos .like, .trending__gifos .expand, .trending__gifos .download {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.trending__gifos .expand {
+  margin-right: 0;
+}
+.trending__gifos i {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+.trending__gifos img {
+  width: 100%;
+  height: 100%;
 }

@@ -1,0 +1,117 @@
+.trending{
+  position: relative;
+  margin-top: 95px;
+  width: 100%;
+  height: 640px;
+  background-color: $background-color;
+  padding-top: 67px;
+  h3{
+    width: 100%;
+    margin: 0 0 0 0;
+    text-align: center;
+    font-size: $small-subTitle-font-size-desktop;
+    color: $primary-color;
+  }
+  p{
+    @extend h3;
+    margin: 12px 0 0 0;
+    font-size: $normal-font-size-desktop;
+    color: #000;
+    font-family: $secondary-font-family;
+  }
+  i{
+    color: $primary-color;
+  }
+  &__back{
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 302px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $primary-color;
+  }
+  &__next{
+    @extend .trending__back;
+  }
+  &__back{
+    right: 6%;
+  }
+  &__next{
+    left: 6%;
+  }
+  &__gifos{
+    position: relative;
+    margin: 53px auto;
+    width: 80%;
+    height: 275px;
+    @include display-grid;
+    @include grid-template-columns(repeat(3, 1fr));
+    @include grid-template-rows(100%);
+    column-gap: 2%;
+    .selected{
+      // display: none;
+      z-index: 2;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: $primary-color;
+      opacity: 0.6;
+    }
+    .item1{
+      position: relative;
+      &__icon{
+        opacity: 1;
+        display: flex;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+      }
+    }
+    .item2{
+      @extend .item1;
+      &__icon{
+        @extend .item1__icon
+
+      }
+    }
+    .item3{
+      @extend .item1;
+      &__icon{
+        @extend .item1__icon
+
+      }
+    }
+    .like{
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      background-color: $light-color;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .download{
+      @extend .like;
+    }
+    .expand{
+      @extend .like;
+      margin-right: 0;
+    }
+    i{
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+      
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
