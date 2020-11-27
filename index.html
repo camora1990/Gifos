@@ -17,8 +17,8 @@
     <title>GIFOS</title>
   </head>
   <body>
-    <div class="margin"></div>
     <div class="container">
+      <div class="margin"></div>
       <header class="header">
         <a class="header__logo" href="#">
           <img src="assets/logos/logo-desktop.svg" alt="" />
@@ -62,71 +62,21 @@
         <section class="trending">
           <h3>Trending GIFOS</h3>
           <p>Mira los últimos GIFO de nuestra comunidad.</p>
-          <div class="trending__back">
-            <i class="fas fa-chevron-right"></i>
-          </div>
-          <div class="trending__gifos">
-            <div class="item1">
-              <div class="selected"></div>
-              <div class="item1__icon">
-                <div id="like-item1" class="like">
-                  <i class="far fa-heart"></i>
-                </div>
-                <div id="download-item1" class="download">
-                  <i class="fas fa-download"></i>
-                </div>
-                <div id="expand-item1" class="expand">
-                  <i class="fas fa-expand-alt"></i>
-                </div>
-              </div>
-              <img
-                src="https://media.giphy.com/media/3o72Fl4kzVUfoMgeeA/source.gif"
-                alt=""
-              />
-            </div>
-            <div class="item2">
-              <div class="selected"></div>
-              <div class="item2__icon">
-                <div id="like-item2" class="like">
-                  <i class="far fa-heart"></i>
-                </div>
-                <div id="download-item2" class="download">
-                  <i class="fas fa-download"></i>
-                </div>
-                <div id="expand-item2" class="expand">
-                  <i class="fas fa-expand-alt"></i>
-                </div>
-              </div>
-              <img
-                src="https://media.giphy.com/media/3o6Zt3c1rJQ5vxqA7u/source.gif"
-                alt=""
-              />
-            </div>
-            <div class="item3">
-              <div class="selected"></div>
-              <div class="item3__icon">
-                <div id="like-item3" class="like">
-                  <i class="far fa-heart"></i>
-                </div>
-                <div id="download-item3" class="download">
-                  <i class="fas fa-download"></i>
-                </div>
-                <div id="expand-item3" class="expand">
-                  <i class="fas fa-expand-alt"></i>
-                </div>
-              </div>
-              <img
-                src="https://media.giphy.com/media/l3mZhr02lGhaYBelq/giphy.gif"
-                alt=""
-              />
-            </div>
-          </div>
           <div class="trending__next">
             <i class="fas fa-chevron-left"></i>
           </div>
+          <div class="trending__container">
+            <div class="trending__gifos">
+            </div>
+          </div>
+          <div class="trending__back">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+         
         </section>
       </main>
     </div>
     <script src="js/menu.js"></script>
+    <script src="js/trendingGif.js"></script>
   </body>
 </html>
