@@ -24,16 +24,16 @@ body {
   width: 100%;
 }
 
-.margin {
-  width: 100%;
-  height: 5px;
-  background-color: #572ee5;
-}
-
 .header {
+  border-top: 5px solid #572ee5;
   width: 100%;
   height: 90px;
   display: flex;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  z-index: 190;
+  max-width: 1440px;
 }
 .header__logo {
   cursor: pointer;
@@ -69,6 +69,11 @@ body {
   text-transform: uppercase;
   font-weight: 700;
 }
+.header__menu ul li a:hover {
+  display: inline-block;
+  height: 20px;
+  border-bottom: 1px solid #50e3c2;
+}
 .header__add {
   width: 54px;
   height: 54px;
@@ -84,6 +89,16 @@ body {
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+.header__add:hover {
+  background-color: #572ee5;
+}
+.header__add:hover i {
+  color: #fff;
+}
+
+.scroll-header {
+  box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -113,7 +128,7 @@ body {
   .header {
     height: 95px;
     width: 100%;
-    position: relative;
+    position: fixed;
   }
   .header__logo {
     width: 48.8px;
@@ -128,7 +143,7 @@ body {
     display: none;
     position: absolute;
     margin: 0;
-    top: 100px;
+    top: 90px;
     z-index: 100;
     height: 100vh;
     width: 100%;
@@ -177,10 +192,13 @@ body {
   display: block;
 }
 
+.main {
+  margin-top: 166px;
+}
 .main__title {
   width: 64.9%;
   height: 100px;
-  margin: 76px auto;
+  margin: 0 auto;
   margin-bottom: 0;
   text-align: center;
 }
@@ -384,8 +402,8 @@ body {
 .trending__gifos .item {
   position: relative;
   display: flex;
-  width: 25vw;
-  max-width: 330px;
+  width: 24.5vw;
+  max-width: 357px;
   height: 100%;
 }
 .trending__gifos .item img {
@@ -393,6 +411,7 @@ body {
   height: 100%;
 }
 .trending__gifos .item .selected {
+  display: none;
   position: absolute;
   z-index: 0;
   width: 100%;
@@ -401,9 +420,9 @@ body {
   opacity: 0.6;
 }
 .trending__gifos .item .like, .trending__gifos .item .expand, .trending__gifos .item .download {
+  display: none;
   cursor: pointer;
   opacity: 0.7;
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 32px;
@@ -423,10 +442,44 @@ body {
 .trending__gifos .item .expand {
   right: 10px;
 }
+.trending__gifos .item .gif-title {
+  display: none;
+  width: 97%;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 51px;
+  left: 18.5px;
+}
+.trending__gifos .item .gif-title span {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  opacity: 0.6;
+}
+.trending__gifos .item .gif-title .user {
+  font-size: 0.9375em;
+}
+.trending__gifos .item .gif-title .title {
+  margin-top: 6px;
+  font-size: 1em;
+}
 .trending__gifos i {
   width: 18px;
   height: 18px;
   font-size: 18px;
+}
+
+.trending__next:hover {
+  background-color: #572ee5;
+}
+.trending__next:hover i {
+  color: #fff;
+}
+.trending__back:hover, .trending__next:hover {
+  background-color: #572ee5;
+}
+.trending__back:hover i, .trending__next:hover i {
+  color: #fff;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -454,7 +507,7 @@ body {
     width: 85%;
   }
   .trending__gifos {
-    grid-column-gap: 3vw;
+    grid-column-gap: 2vw;
   }
   .trending__gifos .item {
     width: 27vw;
@@ -508,5 +561,18 @@ body {
   .trending__gifos .item {
     width: 64vw;
     height: 187px;
+  }
+  .trending__gifos .item .gif-title {
+    bottom: 6px;
+    left: 12px;
+  }
+  .trending__gifos .item .gif-title .user {
+    font-size: 0.9375em;
+    font-size: 0.9375em;
+  }
+  .trending__gifos .item .gif-title .title {
+    height: 40px;
+    margin-top: 5px;
+    font-size: 1em;
   }
 }

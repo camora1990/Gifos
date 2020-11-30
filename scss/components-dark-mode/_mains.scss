@@ -1,12 +1,13 @@
 .main{
+  margin-top: 166px;
   &__title{
     width: 64.9%;
     height: 100px;
-    margin: 76px auto;
+    margin: 0px auto;
     margin-bottom: 0;
     text-align: center;
     h1{
-      margin: 0;
+      margin: 0 18%;
       font-size: $title-font-size-desktop;
       font-weight: bold;
       color: $primary-color;

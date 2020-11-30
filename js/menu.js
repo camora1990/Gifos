@@ -1,23 +1,34 @@
 var theme = localStorage.getItem("theme");
+const header = document.querySelector(".header");
 const menu = document.querySelector(".header__menu");
 const icon = document.getElementById("icon");
 const device = window.matchMedia("screen and (max-width: 500px)");
 const mode = document.getElementById("change-mode");
 const css = document.getElementById("mode-style");
 
+window.document.addEventListener("scroll", eventScroll);
 device.addEventListener("change", validation);
 mode.addEventListener("click", changeMode);
 
-if (theme === undefined || theme === null ) {
+function eventScroll(event) {
+  let position = window.scrollY
+  if(position > 0){
+    header.classList.add("scroll-header")
+  }else{
+    header.classList.remove("scroll-header")
+  }
+}
+
+if (theme === undefined || theme === null) {
   css.href = "css/style-light-mode.css";
-  localStorage.setItem("theme", 'light')
-  mode.innerHTML = 'MODO NOCTURNO'
+  localStorage.setItem("theme", "light");
+  mode.innerHTML = "MODO NOCTURNO";
 } else if (theme == "dark") {
   css.href = "css/style-dark-mode.css";
-  mode.innerHTML = 'MODO DIURNO'
+  mode.innerHTML = "MODO DIURNO";
 } else {
   css.href = "css/style-light-mode.css";
-  mode.innerHTML = 'MODO NOCTURNO'
+  mode.innerHTML = "MODO NOCTURNO";
 }
 
 function validation(event) {
@@ -45,14 +56,14 @@ function createGif() {
 }
 
 function changeMode(event) {
-  if (localStorage.getItem('theme') == "dark") {
+  if (localStorage.getItem("theme") == "dark") {
     localStorage.setItem("theme", "light");
     css.href = "css/style-light-mode.css";
-    mode.innerHTML = 'MODO NOCTURNO'
-  } else if (localStorage.getItem('theme') == "light") {
+    mode.innerHTML = "MODO NOCTURNO";
+  } else if (localStorage.getItem("theme") == "light") {
     localStorage.setItem("theme", "dark");
     css.href = "css/style-dark-mode.css";
-    mode.innerHTML = 'MODO DIURNO'
+    mode.innerHTML = "MODO DIURNO";
   }
 }
 

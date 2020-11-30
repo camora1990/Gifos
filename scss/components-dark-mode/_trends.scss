@@ -65,8 +65,8 @@
     .item {
       position: relative;
       display: flex;
-      width: 25vw;
-      max-width: 330px;
+      width: 24.5vw;
+      max-width: 357px;
       height: 100%;
       img {
         width: 100%;
@@ -105,11 +105,46 @@
         @extend .like;
         right: 10px;
       }
+      .gif-title{
+        width: 97%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 51px;
+        left: 18.5px;
+        span{
+          display: block;
+          font-family: $secondary-font-family;
+          color: $primary-color;
+          opacity: .6;
+        }
+        .user{
+          font-size: .9375em;
+        }
+        .title{
+          margin-top: 6px;
+          font-size: $medium-font-size-desktop;
+        }
+      }
     }
     i {
       width: 18px;
       height: 18px;
       font-size: 18px;
+    }
+  }
+}
+
+.trending {
+  &__next:hover{
+    background-color: $primary-color;
+    i{
+      color: $background-color;
+    }
+  }
+  &__back:hover{
+    background-color: $primary-color;
+    i{
+      color: $background-color;
     }
   }
 }
@@ -138,7 +173,7 @@
       width: 85%;
     }
     &__gifos {
-      grid-column-gap: 3vw;
+      grid-column-gap: 2vw;
       .item {
         width: 27vw;
         .like {
@@ -185,7 +220,7 @@
       width: 90%;
     }
     &__gifos {
-      grid-column-gap: 5vw;
+      grid-column-gap: 3vw;
       .item {
         width: 43vw;
       
@@ -202,13 +237,19 @@
       .item {
         width: 64vw;
         height: 187px;
-        // .like{
-
-        // }
-        // .download {
-        //   @extend .like;
-
-        // }
+        .gif-title{
+          bottom: 6px;
+          left: 12px;
+          .user{
+            font-size: .9375em;
+            font-size: $medium-font-size-mobile;
+          }
+          .title{
+            height: 40px;
+            margin-top: 5px;
+            font-size: $normal-font-size-mobile;
+          }
+        }
       }
     }
   }

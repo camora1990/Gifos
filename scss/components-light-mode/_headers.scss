@@ -1,13 +1,14 @@
-.margin {
-  width: 100%;
-  height: 5px;
-  background-color: $primary-color;
-}
 
 .header {
+  border-top: 5px solid $primary-color;
   width: 100%;
   height: 90px;
   display: flex;
+  position: fixed;
+  top: 0;
+  background-color: $light-color;
+  z-index: 190;
+  max-width: 1440px;
   &__logo {
     cursor: pointer;
     width: 59px;
@@ -39,6 +40,11 @@
           text-transform: uppercase;
           font-weight: 700;
         }
+        a:hover{
+          display: inline-block;
+          height: 20px;
+          border-bottom: 1px solid #50e3c2;
+        }
       }
     }
   }
@@ -58,6 +64,15 @@
       cursor: pointer;
     }
   }
+  &__add:hover {
+    background-color: $primary-color;
+    i{
+      color: $light-color;
+    }
+  }
+}
+.scroll-header{
+  box-shadow: 0 2px 4px 1px rgba(156,175,195,0.55);
 }
 
 @include media(desktop-m) {
@@ -95,7 +110,7 @@
   .header {
     height: 95px;
     width: 100%;
-    position: relative;
+    position: fixed;
     &__logo {
       width: 48.8px;
       height: 48.8px;
@@ -109,7 +124,7 @@
       display: none;
       position: absolute;
       margin: 0;
-      top: 100px;
+      top: 90px;
       z-index: 100;
       height: 100vh;
       width: 100%;
