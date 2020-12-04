@@ -12,6 +12,7 @@
       font-family: $secondary-font-family;
       font-size: $small-font-size-desktop;
       margin-right: 17px;
+      
 
     }
     i {
@@ -19,6 +20,7 @@
       width: 20px;
       height: 20px;
       margin-right: 19px;
+      color:  #CDD6E0;
      
     }
     i:hover {
@@ -60,7 +62,7 @@
 @include media(mobile) {
   .footer {
     text-align: center;
-    padding: 47px  22% 28px 22%;
+    padding: 47px  0 28px 0;
     height: 196px;
     display: block;
     &__social-media {

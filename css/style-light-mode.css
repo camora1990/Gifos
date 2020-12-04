@@ -72,7 +72,7 @@ body {
 .header__menu ul li a:hover {
   display: inline-block;
   height: 20px;
-  border-bottom: 1px solid #50e3c2;
+  border-bottom: 3px solid #50e3c2;
 }
 .header__add {
   width: 54px;
@@ -384,26 +384,28 @@ body {
   left: 6%;
 }
 .trending__container {
-  position: relative;
   width: 79%;
   height: 275px;
   margin: 53px auto;
   margin-bottom: 0;
-  display: flex;
   overflow: hidden;
+  padding-left: 1%;
 }
 .trending__gifos {
+  padding: 0;
+  margin: 0;
+  list-style: none;
   position: relative;
+  display: flex;
   left: 0;
   height: 100%;
-  display: flex;
-  grid-column-gap: 2vw;
 }
 .trending__gifos .item {
+  margin: 0;
+  padding: 0;
   position: relative;
   display: flex;
   width: 24.5vw;
-  max-width: 357px;
   height: 100%;
 }
 .trending__gifos .item img {
@@ -506,12 +508,6 @@ body {
   .trending__container {
     width: 85%;
   }
-  .trending__gifos {
-    grid-column-gap: 2vw;
-  }
-  .trending__gifos .item {
-    width: 27vw;
-  }
   .trending__gifos .item .like, .trending__gifos .item .download, .trending__gifos .item .expand {
     height: 25px;
     width: 25px;
@@ -547,19 +543,12 @@ body {
     margin-top: 32px;
     width: 90%;
   }
-  .trending__gifos {
-    grid-column-gap: 5vw;
-  }
-  .trending__gifos .item {
-    width: 43vw;
-  }
 }
 @media only screen and (max-width: 500px) {
   .trending__container {
     width: 95%;
   }
   .trending__gifos .item {
-    width: 64vw;
     height: 187px;
   }
   .trending__gifos .item .gif-title {
@@ -598,6 +587,7 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 19px;
+  color: #CDD6E0;
 }
 .footer__social-media i:hover {
   color: #572ee5;
@@ -624,7 +614,7 @@ body {
 @media only screen and (max-width: 500px) {
   .footer {
     text-align: center;
-    padding: 47px 22% 28px 22%;
+    padding: 47px 0 28px 0;
     height: 196px;
     display: block;
   }

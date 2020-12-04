@@ -37,12 +37,15 @@ function validation(event) {
     icon.classList.remove("fa-plus");
     icon.removeEventListener("click", createGif);
     icon.addEventListener("click", showMenu);
+
+
   } else {
     icon.classList.add("fa-plus");
     icon.classList.remove("fa-bars");
     icon.classList.remove("fa-times");
     icon.addEventListener("click", createGif);
     icon.removeEventListener("click", showMenu);
+
   }
 }
 
@@ -52,7 +55,7 @@ function showMenu(event) {
 }
 
 function createGif() {
-  alert("holi");
+  alert("prueba");
 }
 
 function changeMode(event) {

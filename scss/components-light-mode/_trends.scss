@@ -42,25 +42,28 @@
     left: 6%;
   }
   &__container {
-    position: relative;
     width: 79%;
     height: 275px;
     margin: 53px auto;
     margin-bottom: 0;
-    display: flex;
     overflow: hidden;
+    padding-left: 1%;
   }
   &__gifos {
+    padding: 0;
+    margin: 0;
+    list-style: none;
     position: relative;
+    display: flex;
     left: 0;
     height: 100%;
-    display: flex;
-    grid-column-gap: 2vw;
     .item {
+      margin: 0;
+      padding: 0;
       position: relative;
       display: flex;
       width: 24.5vw;
-      max-width: 357px;
+      // max-width: 357px;
       height: 100%;
       img {
         width: 100%;
@@ -170,9 +173,7 @@
       width: 85%;
     }
     &__gifos {
-      grid-column-gap: 2vw;
       .item {
-        width: 27vw;
         .like {
           height: 25px;
           width: 25px;
@@ -216,13 +217,6 @@
       margin-top: 32px;
       width: 90%;
     }
-    &__gifos {
-      grid-column-gap: 5vw;
-      .item {
-        width: 43vw;
-      
-      }
-    }
   }
 }
 @include media(mobile) {
@@ -232,7 +226,6 @@
     }
     &__gifos {
       .item {
-        width: 64vw;
         height: 187px;
         .gif-title{
           bottom: 6px;
