@@ -6,20 +6,10 @@ const back = document.getElementById("back");
 const deviceTrending = window.matchMedia("screen and (max-width: 500px)");
 var totalGifs;
 var gifPosition = 0;
-var localTrendingGifs = [];
 var widthItem;
 var marginRightItem;
 
 (async function trendingGifs() {
-  async function getData() {
-    let baseApi = `${urlApi}?api_key=${api_key}`;
-    const response = await fetch(baseApi);
-    const data = await response.json();
-    return data;
-  }
-
-  style = "width: 100px; margin-right: 100px;";
-
   function createTemplateGifs(gifs, width, marginRight) {
     return `<li style="width: ${width}%; margin-right: ${marginRight}%;" class="item" data-id="${gifs.id}" onmouseenter="trendingMouseOver(event)" onmouseleave="trendingMouseLeave(event)">
               <div class="selected"></div>
@@ -32,7 +22,7 @@ var marginRightItem;
               <div class="expand" onmouseenter="preferenceMouseOver(event)" onmouseleave="preferenceMouseLeave(event)">
                 <i class="fas fa-expand-alt" onclick="expand(event)"></i>
               </div>
-              <img
+             <img
                 src="${gifs.images.original.url}"
                 alt="${gifs.title}"
               />
@@ -43,7 +33,7 @@ var marginRightItem;
             </li> `;
   }
 
-  var dataTrending = await getData();
+  var dataTrending = await getData(urlApi, api_key);
   localTrendingGifs = dataTrending.data;
   totalGifs = localTrendingGifs.length;
   const widthTrendingGifos = totalGifs * 33.333333;
@@ -60,11 +50,10 @@ var marginRightItem;
 deviceTrending.addEventListener("change", validationScreen);
 
 function validationScreen(event) {
-  validationMobile(event)
+  validationMobile(event);
 }
 
 function validationMobile(event) {
-  console.log(event.matches)
   if (event.matches) {
     trendingMobileItem(event);
   } else {
@@ -72,23 +61,31 @@ function validationMobile(event) {
   }
 }
 
+
 function download(event) {
-  alert("download");
-  console.log(event);
-  let img = event.target.parentNode.parentElement.childNodes[9];
-  console.log(img)
-  let downloadLink = img.src
-  event.setAttribute('download', downloadLink);
-  linkElement.href = downloadLink;
-  linkElement.click();
-}
+  let url =
+    event.target.parentNode.parentElement.childNodes[9].attributes.src.value;
+   //called of globals
+    downloadGif(url)
+
+ }
 
 function expand(event) {
-  alert("expand");
-  console.log(event);
+  let overlay = document.querySelector(".overlay");
+  let idImg = event.target.parentNode.parentElement.dataset.id;
+  let imgModal = document.getElementById("image-modal");
+  let user = document.querySelector('.modal__information--user')
+  let title = document.querySelector('.modal__information--title')
+  overlay.style.display = "flex";
+  overlay.style.animation ="modalIn .8s forwards"
+  positionGifs = localTrendingGifs.findIndex((element) => (element.id === idImg));
+  imgModal.src = `${localTrendingGifs[positionGifs].images.original.url}`;
+  user.innerHTML = `${localTrendingGifs[positionGifs].username}`
+  title.innerHTML = `${localTrendingGifs[positionGifs].title}`
 }
 
 function like(event) {
+  // var datos = localTrendingGifs.findIndex((data) => data.id === "camilo");
   event.target.classList.toggle("fas");
 }
 
@@ -138,7 +135,7 @@ function nextTrending(event) {
   if (gifPosition < totalGifs - 3) {
     gifPosition++;
     trendingGifos.style.left = `-${33.3333333333 * gifPosition}%`;
-    trendingGifos.style.transition = ".7s left ease-in-out"
+    trendingGifos.style.transition = ".7s left ease-in-out";
   }
 }
 
@@ -153,11 +150,10 @@ function trendingMobileItem(event) {
   let item = document.querySelectorAll(".item");
   let trendingGifosContainer = document.querySelector(".trending__container");
   trendingGifosContainer.style.display = "flex";
-  trendingGifos.style.width = 'auto';
+  trendingGifos.style.width = "auto";
   item.forEach((element) => {
     element.style.width = 64.8 + "vw";
-    element.style.marginRight = 6+'vw'
-
+    element.style.marginRight = 6 + "vw";
   });
 }
 
@@ -168,9 +164,8 @@ function trendingDesktopItem(event) {
   trendingGifosContainer.style.display = "block";
   item.forEach((element) => {
     element.style.width = widthItem + "%";
-    element.style.marginRight = marginRightItem+'%'
+    element.style.marginRight = marginRightItem + "%";
   });
 }
 
-
-validationMobile(deviceTrending)
+validationMobile(deviceTrending);

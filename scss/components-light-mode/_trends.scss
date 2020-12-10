@@ -31,14 +31,17 @@
     width: 40px;
     height: 40px;
     border: 1px solid $primary-color;
+    right:  6%;
   }
   &__next {
-    @extend .trending__back;
-  }
-  &__back {
-    right: 6%;
-  }
-  &__next {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 302px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $primary-color;
     left: 6%;
   }
   &__container {
@@ -211,7 +214,7 @@
       display: none;
     }
     &__next {
-      @extend .trending__back;
+      display: none;
     }
     &__container {
       margin-top: 32px;

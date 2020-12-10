@@ -390,26 +390,28 @@ body {
   left: 6%;
 }
 .trending__container {
-  position: relative;
   width: 79%;
   height: 275px;
   margin: 53px auto;
   margin-bottom: 0;
-  display: flex;
   overflow: hidden;
+  padding-left: 1%;
 }
 .trending__gifos {
+  padding: 0;
+  margin: 0;
+  list-style: none;
   position: relative;
+  display: flex;
   left: 0;
   height: 100%;
-  display: flex;
-  grid-column-gap: 2vw;
 }
 .trending__gifos .item {
+  margin: 0;
+  padding: 0;
   position: relative;
   display: flex;
   width: 24.5vw;
-  max-width: 357px;
   height: 100%;
 }
 .trending__gifos .item img {
@@ -510,12 +512,6 @@ body {
   .trending__container {
     width: 85%;
   }
-  .trending__gifos {
-    grid-column-gap: 2vw;
-  }
-  .trending__gifos .item {
-    width: 27vw;
-  }
   .trending__gifos .item .like, .trending__gifos .item .download, .trending__gifos .item .expand {
     height: 25px;
     width: 25px;
@@ -551,19 +547,12 @@ body {
     margin-top: 32px;
     width: 90%;
   }
-  .trending__gifos {
-    grid-column-gap: 3vw;
-  }
-  .trending__gifos .item {
-    width: 43vw;
-  }
 }
 @media only screen and (max-width: 500px) {
   .trending__container {
     width: 95%;
   }
   .trending__gifos .item {
-    width: 64vw;
     height: 187px;
   }
   .trending__gifos .item .gif-title {
