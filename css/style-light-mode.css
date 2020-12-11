@@ -238,6 +238,7 @@ body {
   width: 80%;
   border: none;
   font-family: "Roboto", sans-serif;
+  outline-style: none;
 }
 .main__search input::placeholder {
   color: #9CAFC3;
@@ -556,6 +557,11 @@ body {
 @media only screen and (max-width: 500px) {
   .trending__container {
     width: 95%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .trending__container ::-webkit-scrollbar {
+    display: none;
   }
   .trending__gifos .item {
     height: 187px;
@@ -683,7 +689,6 @@ body {
   width: 100%;
   max-width: 1440px;
   height: 100%;
-  background-color: #fff;
   margin: 0 auto;
 }
 .overlay .modal__close {

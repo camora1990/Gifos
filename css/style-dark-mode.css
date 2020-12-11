@@ -551,6 +551,11 @@ body {
 @media only screen and (max-width: 500px) {
   .trending__container {
     width: 95%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .trending__container ::-webkit-scrollbar {
+    display: none;
   }
   .trending__gifos .item {
     height: 187px;

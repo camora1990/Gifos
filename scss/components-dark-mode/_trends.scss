@@ -227,6 +227,11 @@
   .trending {
     &__container {
       width: 95%;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+    &__container ::-webkit-scrollbar{
+      display: none;
     }
     &__gifos {
       .item {
