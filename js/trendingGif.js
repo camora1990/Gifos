@@ -14,7 +14,7 @@ var marginRightItem;
     let myGifs = JSON.parse(localStorage.getItem("favorites"));
     let indexMyGifs = myGifs.findIndex((data) => data.id === gifs.id);
     let icon = indexMyGifs == -1 ? "far" : "fas";
-    return `<li style="width: ${width}%; margin-right: ${marginRight}%;" class="item" data-id="${gifs.id}" onmouseenter="trendingMouseOver(event)" onmouseleave="trendingMouseLeave(event)">
+    return `<li style="width: ${width}; margin-right: ${marginRight};" class="item" data-id="${gifs.id}" onmouseenter="trendingMouseOver(event)" onmouseleave="trendingMouseLeave(event)">
               <div class="selected"></div>
               <div class="like"  onmouseenter="preferenceMouseOver(event)" onmouseleave="preferenceMouseLeave(event)">
                 <i class="${icon} fa-heart" onclick="like(event)"></i>
@@ -39,15 +39,28 @@ var marginRightItem;
   var dataTrending = await getData(urlApi, api_key);
   localTrendingGifs = dataTrending.data;
   totalGifs = localTrendingGifs.length;
-  const widthTrendingGifos = totalGifs * 33.333333;
-  trendingGifos.style.width = `${widthTrendingGifos}%`;
 
-  dataTrending.data.forEach((element) => {
-    widthItem = (widthTrendingGifos * 0.96) / totalGifs;
-    marginRightItem = 4 / totalGifs;
-    let templateGif = createTemplateGifs(element, widthItem, marginRightItem);
-    trendingGifos.innerHTML += templateGif;
-  });
+  if (deviceTrending.matches) {
+    let trendingGifosContainer = document.querySelector(".trending__container");
+    trendingGifosContainer.style.display = "flex";
+    trendingGifos.style.width = "auto";
+
+    dataTrending.data.forEach((element) => {
+      widthItem = 64.8 + "vw";
+      marginRightItem = 6 + "vw";
+      let templateGif = createTemplateGifs(element, widthItem, marginRightItem);
+      trendingGifos.innerHTML += templateGif;
+    });
+  } else {
+    const widthTrendingGifos = totalGifs * 33.333333;
+    trendingGifos.style.width = `${widthTrendingGifos}%`;
+    dataTrending.data.forEach((element) => {
+      widthItem = `${(widthTrendingGifos * 0.96) / totalGifs}%`;
+      marginRightItem = `${4 / totalGifs}%`;
+      let templateGif = createTemplateGifs(element, widthItem, marginRightItem);
+      trendingGifos.innerHTML += templateGif;
+    });
+  }
 })();
 
 deviceTrending.addEventListener("change", validationScreen);
@@ -77,7 +90,7 @@ function expand(event) {
   let imgModal = document.getElementById("image-modal");
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
-  let myGifs = []
+  let myGifs = [];
 
   myGifs = JSON.parse(localStorage.getItem("favorites"));
   positionGifs = localTrendingGifs.findIndex((element) => element.id === idImg);
@@ -86,9 +99,11 @@ function expand(event) {
   user.innerHTML = `${localTrendingGifs[positionGifs].username}`;
   title.innerHTML = `${localTrendingGifs[positionGifs].title}`;
 
-  let indexMyGifs = myGifs.findIndex((data) => data.id === localTrendingGifs[positionGifs].id)
-  let clasIcon = indexMyGifs==-1?"far":"fas"
-  document.getElementById('modal-like').classList.add(clasIcon)
+  let indexMyGifs = myGifs.findIndex(
+    (data) => data.id === localTrendingGifs[positionGifs].id
+  );
+  let clasIcon = indexMyGifs == -1 ? "far" : "fas";
+  document.getElementById("modal-like").classList.add(clasIcon);
   overlay.style.display = "flex";
   overlay.style.animation = "modalIn .8s forwards";
 }
@@ -110,13 +125,15 @@ function like(event) {
 function trendingMouseOver(event) {
   event.target.childNodes[1].style.display = "block";
   event.target.childNodes[3].style.display = "flex";
-  event.target.childNodes[3].childNodes[1].classList.remove('fas')
-  event.target.childNodes[3].childNodes[1].classList.remove('far')
+  event.target.childNodes[3].childNodes[1].classList.remove("fas");
+  event.target.childNodes[3].childNodes[1].classList.remove("far");
 
   let myGifs = JSON.parse(localStorage.getItem("favorites"));
-  let indexMyGifs = myGifs.findIndex((data) => data.id === event.target.dataset.id);
-  let clasIcon = indexMyGifs==-1?"far":"fas"
-  event.target.childNodes[3].childNodes[1].classList.add(clasIcon)
+  let indexMyGifs = myGifs.findIndex(
+    (data) => data.id === event.target.dataset.id
+  );
+  let clasIcon = indexMyGifs == -1 ? "far" : "fas";
+  event.target.childNodes[3].childNodes[1].classList.add(clasIcon);
 
   if (event.target.childNodes[3].childNodes[1].classList.contains("fas")) {
     event.target.childNodes[3].style.opacity = "1";
@@ -192,5 +209,5 @@ function trendingDesktopItem(event) {
     element.style.marginRight = marginRightItem + "%";
   });
 }
-
+debugger;
 validationMobile(deviceTrending);
