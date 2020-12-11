@@ -11,10 +11,13 @@ var marginRightItem;
 
 (async function trendingGifs() {
   function createTemplateGifs(gifs, width, marginRight) {
+    let myGifs = JSON.parse(localStorage.getItem("favorites"));
+    let indexMyGifs = myGifs.findIndex((data) => data.id === gifs.id);
+    let icon = indexMyGifs == -1 ? "far" : "fas";
     return `<li style="width: ${width}%; margin-right: ${marginRight}%;" class="item" data-id="${gifs.id}" onmouseenter="trendingMouseOver(event)" onmouseleave="trendingMouseLeave(event)">
               <div class="selected"></div>
               <div class="like"  onmouseenter="preferenceMouseOver(event)" onmouseleave="preferenceMouseLeave(event)">
-                <i class="far fa-heart" onclick="like(event)"></i>
+                <i class="${icon} fa-heart" onclick="like(event)"></i>
               </div>
               <div class="download"  onmouseenter="preferenceMouseOver(event)" onmouseleave="preferenceMouseLeave(event)">
                 <i class="fas fa-download" onclick="download(event)"></i>
@@ -61,37 +64,59 @@ function validationMobile(event) {
   }
 }
 
-
 function download(event) {
   let url =
     event.target.parentNode.parentElement.childNodes[9].attributes.src.value;
-   //called of globals
-    downloadGif(url)
-
- }
+  //called of globals
+  downloadGif(url);
+}
 
 function expand(event) {
   let overlay = document.querySelector(".overlay");
   let idImg = event.target.parentNode.parentElement.dataset.id;
   let imgModal = document.getElementById("image-modal");
-  let user = document.querySelector('.modal__information--user')
-  let title = document.querySelector('.modal__information--title')
-  overlay.style.display = "flex";
-  overlay.style.animation ="modalIn .8s forwards"
-  positionGifs = localTrendingGifs.findIndex((element) => (element.id === idImg));
+  let user = document.querySelector(".modal__information--user");
+  let title = document.querySelector(".modal__information--title");
+  let myGifs = []
+
+  myGifs = JSON.parse(localStorage.getItem("favorites"));
+  positionGifs = localTrendingGifs.findIndex((element) => element.id === idImg);
   imgModal.src = `${localTrendingGifs[positionGifs].images.original.url}`;
-  user.innerHTML = `${localTrendingGifs[positionGifs].username}`
-  title.innerHTML = `${localTrendingGifs[positionGifs].title}`
+  imgModal.dataset.id = `${localTrendingGifs[positionGifs].id}`;
+  user.innerHTML = `${localTrendingGifs[positionGifs].username}`;
+  title.innerHTML = `${localTrendingGifs[positionGifs].title}`;
+
+  let indexMyGifs = myGifs.findIndex((data) => data.id === localTrendingGifs[positionGifs].id)
+  let clasIcon = indexMyGifs==-1?"far":"fas"
+  document.getElementById('modal-like').classList.add(clasIcon)
+  overlay.style.display = "flex";
+  overlay.style.animation = "modalIn .8s forwards";
 }
 
 function like(event) {
-  // var datos = localTrendingGifs.findIndex((data) => data.id === "camilo");
-  event.target.classList.toggle("fas");
+  let id = event.target.parentNode.parentElement.dataset.id;
+  let tempGif = localTrendingGifs.find((data) => data.id === id);
+  let gif = [
+    {
+      id: tempGif.id,
+      url: tempGif.images.original.url,
+      title: tempGif.title,
+      user: tempGif.username,
+    },
+  ];
+  favoriteGif(id, gif, event);
 }
 
 function trendingMouseOver(event) {
   event.target.childNodes[1].style.display = "block";
   event.target.childNodes[3].style.display = "flex";
+  event.target.childNodes[3].childNodes[1].classList.remove('fas')
+  event.target.childNodes[3].childNodes[1].classList.remove('far')
+
+  let myGifs = JSON.parse(localStorage.getItem("favorites"));
+  let indexMyGifs = myGifs.findIndex((data) => data.id === event.target.dataset.id);
+  let clasIcon = indexMyGifs==-1?"far":"fas"
+  event.target.childNodes[3].childNodes[1].classList.add(clasIcon)
 
   if (event.target.childNodes[3].childNodes[1].classList.contains("fas")) {
     event.target.childNodes[3].style.opacity = "1";

@@ -694,6 +694,7 @@ body {
   color: #572ee5;
   top: 8.6%;
   right: 19.3%;
+  font-size: 22px;
 }
 .overlay .modal__back {
   position: absolute;
@@ -784,4 +785,61 @@ body {
   border-radius: 6px;
   border-radius: 6px;
   color: #572ee5;
+}
+@media only screen and (max-width: 1200px) {
+  .overlay .modal__close {
+    right: 7.5%;
+  }
+  .overlay .modal__back {
+    left: 5%;
+  }
+  .overlay .modal__next {
+    right: 5%;
+  }
+  .overlay .modal img {
+    width: 70%;
+  }
+  .overlay .modal__information {
+    left: 16%;
+  }
+  .overlay .modal__media {
+    right: 16%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .overlay .modal__close {
+    top: 59px;
+    right: 9.1%;
+  }
+  .overlay .modal__back {
+    display: none;
+  }
+  .overlay .modal__next {
+    display: none;
+  }
+  .overlay .modal img {
+    width: 84.8%;
+    height: 42%;
+  }
+  .overlay .modal__information {
+    margin-top: 14px;
+    left: 9.3%;
+    top: 70%;
+    width: 35%;
+  }
+  .overlay .modal__information--user {
+    font-size: 0.9375em;
+  }
+  .overlay .modal__information--title {
+    font-size: 1em;
+  }
+  .overlay .modal__media {
+    right: 7.7%;
+    top: 70%;
+  }
+  .overlay .modal__media--like, .overlay .modal__media--download {
+    width: 36px;
+    height: 36px;
+    margin-left: 16px;
+  }
 }
