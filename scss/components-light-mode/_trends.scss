@@ -198,6 +198,16 @@
 @include media(tablet) {
   .trending {
     height: 430px;
+
+    &__container {
+      width: 95%;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+
+    }
+    &__container ::-webkit-scrollbar{
+      display: none;
+    }
     h3 {
       font-size: $small-subTitle-font-size-mobile;
       line-height: 30px;
@@ -224,15 +234,6 @@
 }
 @include media(mobile) {
   .trending {
-    &__container {
-      width: 95%;
-      overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-
-    }
-    &__container ::-webkit-scrollbar{
-      display: none;
-    }
     &__gifos {
       .item {
         height: 187px;
