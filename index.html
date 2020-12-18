@@ -52,8 +52,20 @@
               id="search"
               type="text"
               placeholder="Busca GIFOS y más"
+              autocomplete="off"
             />
-            <i class="fas fa-search icon-right"></i>
+            <i class="fas fa-search icon-right" id="icon-search"></i>
+            <i
+              class="fas fa-times icon-right-close hidden"
+              id="clear-search"
+            ></i>
+            <div class="main__search--margin hidden hidden"></div>
+            <ul id="suggestions" class="hidden main__search--suggestions">
+              <li> <i class="fas fa-search "></i><span></span></li>
+              <li> <i class="fas fa-search "></i><span></span></li>
+              <li> <i class="fas fa-search "></i><span></span></li>
+              <li> <i class="fas fa-search "></i><span></span></li>
+            </ul>
           </div>
           <p>
             <span>Trending:</span> <br />
@@ -62,11 +74,13 @@
         </section>
         <section class="search-result">
           <div class="search-result__margin"></div>
+          <h2 class="search-result__title">Lorem Ipsum</h2>
           <div class="search-result__wrong">
-            <h2 class="search-result__wrong--title">
-              Lorem Ipsum
-            </h2>
-            <img class="search-result__wrong--image" src="assets/img/icon-busqueda-sin-resultado.svg" alt="">
+            <img
+              class="search-result__wrong--image"
+              src="assets/img/icon-busqueda-sin-resultado.svg"
+              alt=""
+            />
             <p>Intenta con otra búsqueda.</p>
           </div>
         </section>
@@ -104,7 +118,7 @@
         <div class="modal__back" id="modal-back">
           <i class="fas fa-chevron-left"></i>
         </div>
-        <img id="image-modal" src="" alt="" data-id=""/>
+        <img id="image-modal" src="" alt="" data-id="" />
         <div class="modal__next" id="modal-next">
           <i class="fas fa-chevron-right"></i>
         </div>
@@ -125,6 +139,7 @@
     <script src="js/globals.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/trendingGif.js"></script>
   </body>
 </html>

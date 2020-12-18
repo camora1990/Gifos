@@ -1,5 +1,4 @@
 const urlApi = "https://api.giphy.com/v1/gifs/trending";
-const api_key = "vhJ8PRnNPlfioc3JHjAskmPh3GdPK2J1";
 const trendingGifos = document.querySelector(".trending__gifos");
 const next = document.getElementById("next");
 const back = document.getElementById("back");
@@ -209,5 +208,5 @@ function trendingDesktopItem(event) {
     element.style.marginRight = marginRightItem + "%";
   });
 }
-debugger;
+
 validationMobile(deviceTrending);

@@ -225,7 +225,7 @@ body {
 .main__search {
   position: relative;
   width: 38.3%;
-  height: 50px;
+  min-height: 50px;
   margin: 0 auto;
   border-radius: 27px;
   border: 1px solid #572ee5;
@@ -234,29 +234,67 @@ body {
   font-size: 1em;
   padding: 5px;
   margin: 0 10%;
-  height: 100%;
+  height: 50px;
   width: 80%;
   border: none;
   font-family: "Roboto", sans-serif;
-  outline-style: none;
+  outline: none;
 }
 .main__search input::placeholder {
   color: #9CAFC3;
 }
 .main__search i {
   position: absolute;
-  bottom: 15px;
+  top: 15px;
   height: 20px;
   width: 20px;
+  cursor: pointer;
+}
+.main__search--margin {
+  height: 1px;
+  width: 95%;
+  margin: 0 auto;
+  background-color: #9CAFC3;
+}
+.main__search--suggestions {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 14px 23px 18px 23px;
+}
+.main__search--suggestions li {
+  cursor: pointer;
+  display: flex;
+  font-size: 1em;
+  color: #9CAFC3;
+  font-family: "Roboto", sans-serif;
+  height: 32px;
+  align-items: center;
+  width: 100%;
+}
+.main__search--suggestions li:hover {
+  background-color: rgba(156, 175, 195, 0.2);
+}
+.main__search--suggestions i {
+  display: block;
+  position: relative;
+  top: 0;
+  color: #9CAFC3;
+  width: 15px;
+  height: 15px;
+  margin-right: 14.6px;
 }
 .main__search .icon-left {
   display: none;
   left: 20px;
   color: #9CAFC3;
 }
-.main__search .icon-right {
+.main__search .icon-right, .main__search .icon-right-close {
   right: 20px;
   color: #572ee5;
+}
+.main__search .hidden {
+  display: none;
 }
 .main p {
   margin: 0;
@@ -331,7 +369,7 @@ body {
   .main__search .icon-left {
     left: 20px;
   }
-  .main__search .icon-right {
+  .main__search .icon-right, .main__search .icon-right-close {
     right: 20px;
   }
   .main p {
@@ -354,15 +392,15 @@ body {
   background-color: #9CAFC3;
   margin: 0 auto;
 }
-.search-result__wrong {
-  width: 100%;
-}
-.search-result__wrong--title {
+.search-result__title {
   margin: 83.9px 0 0 0;
   text-align: center;
   color: #572ee5;
   line-height: 30px;
   font-size: 1.875em;
+}
+.search-result__wrong {
+  width: 100%;
 }
 .search-result__wrong--image {
   width: 10.4%;
@@ -383,7 +421,7 @@ body {
   .search-result__margin {
     width: 35%;
   }
-  .search-result__wrong--title {
+  .search-result__title {
     margin: 55px;
     font-size: 1.5625em;
   }
@@ -411,7 +449,7 @@ body {
   .search-result__margin {
     margin-top: 35px;
   }
-  .search-result__wrong--title {
+  .search-result__title {
     margin-top: 43px;
     font-size: 1.25em;
     line-height: 40px;

@@ -29,17 +29,18 @@
   &__search{
     position: relative;
     width: 38.3%;
-    height: 50px;
+    min-height: 50px;
     margin: 0 auto;
     border-radius: 27px;
     border: 1px solid $primary-color;
     input{
+      outline: none;
       margin:0 10% ;
-      height: 100%;
+      height: 50px;
       width: 80%;
       border: none;
       background-color: #37383C;
-      color: $light-color;
+      color: $primary-color;
       font-family: $secondary-font-family;
 
     }
@@ -47,10 +48,46 @@
       color: $press-color;
     }
     i{
+      cursor: pointer;
       position: absolute;
-      bottom: 15px;
+      top: 15px;
       height: 20px;
       width: 20px;
+    }
+    &--margin{
+      height: 1px;
+      width: 95%;
+      margin: 0 auto;
+      background-color: $press-color;
+    }
+    &--suggestions{
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 14px 23px 18px 23px;
+      li{
+        display: flex;
+        font-size: $medium-font-size-desktop;
+        color: $press-color;
+        font-family: $secondary-font-family;
+        height: 32px;
+        align-items: center;
+        cursor: pointer;
+        width: 100%;
+      }
+      li:hover{
+        background-color: rgba($color: $background-color, $alpha: .3);
+
+      }
+      i{
+        display: block;
+        position: relative;
+        top: 0;
+        color: $press-color;
+        width: 15px;
+        height: 15px;
+        margin-right: 14.6px;
+      }
     }
     .icon-left{
       display: none;
@@ -60,6 +97,12 @@
     .icon-right{
       right:  20px;
       color: $primary-color;
+    }
+    .icon-right-close{
+      @extend .icon-right 
+    }
+    .hidden{
+      display: none;
     }
     
   }

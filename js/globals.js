@@ -1,4 +1,5 @@
 
+const api_key = "vhJ8PRnNPlfioc3JHjAskmPh3GdPK2J1";
 var localTrendingGifs = [];
 
 if (JSON.parse(localStorage.getItem("favorites")) === null || JSON.parse(localStorage.getItem("favorites")) === undefined) {

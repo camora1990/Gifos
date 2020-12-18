@@ -7,15 +7,16 @@
     background-color: $press-color;
     margin: 0 auto;
   }
+  &__title{
+    margin: 83.9px 0 0 0;
+    text-align: center;
+    color: $primary-color;
+    line-height: 30px;
+    font-size: $medium-subTitle-font-size-desktop;
+  }
   &__wrong{
     width: 100%;
-    &--title{
-      margin: 83.9px 0 0 0;
-      text-align: center;
-      color: $primary-color;
-      line-height: 30px;
-      font-size: $medium-subTitle-font-size-desktop;
-    }
+    
     &--image{
       width:10.4% ;
       display: flex;
@@ -41,12 +42,13 @@
     &__margin{
       width: 35%;
     }
+    &__title{
+      margin: 55px;
+      font-size: $small-subTitle-font-size-desktop;
+    }
     &__wrong{
 
-      &--title{
-        margin: 55px;
-        font-size: $small-subTitle-font-size-desktop;
-      }
+   
       &--image{
         width: 12%;
         margin-top: 75px;
@@ -80,13 +82,14 @@
     &__margin{
       margin-top: 35px;
     }
+    &__title{
+      margin-top: 43px;
+      font-size: $small-subTitle-font-size-mobile;
+      line-height: 40px;
+    }
     &__wrong{
 
-      &--title{
-        margin-top: 43px;
-        font-size: $small-subTitle-font-size-mobile;
-        line-height: 40px;
-      }
+     
       &--image{
         margin-top: 35px;
         width: 20%;
