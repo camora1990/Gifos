@@ -43,6 +43,7 @@
       border: none;
       font-family: $secondary-font-family;
       outline: none;
+      font-size: $medium-font-size-desktop;
     }
     input::placeholder {
       color: $press-color;
@@ -134,7 +135,7 @@
     }
     &__search {
       width: 50%;
-      height: 40px;
+      min-height: 40px;
       i {
         bottom: 18px;
         height: 10px;
@@ -178,12 +179,22 @@
     }
     &__search {
       width: 89.1%;
-      height: 50px;
+      min-height: 50px;
+      input{
+        margin: 0 12.5%;
+        width: 75%;
+      }
       i {
         bottom: 10px;
         width: 20px;
         height: 20px;
       }
+      &--suggestions{
+        li{
+        i{
+          margin-right: 3%;
+        }
+        }}
       .icon-left {
         left: 20px;
       }

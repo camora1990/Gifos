@@ -239,6 +239,7 @@ body {
   border: none;
   font-family: "Roboto", sans-serif;
   outline: none;
+  font-size: 1em;
 }
 .main__search input::placeholder {
   color: #9CAFC3;
@@ -321,7 +322,7 @@ body {
   }
   .main__search {
     width: 50%;
-    height: 40px;
+    min-height: 40px;
   }
   .main__search i {
     bottom: 18px;
@@ -359,12 +360,19 @@ body {
   }
   .main__search {
     width: 89.1%;
-    height: 50px;
+    min-height: 50px;
+  }
+  .main__search input {
+    margin: 0 12.5%;
+    width: 75%;
   }
   .main__search i {
     bottom: 10px;
     width: 20px;
     height: 20px;
+  }
+  .main__search--suggestions li i {
+    margin-right: 3%;
   }
   .main__search .icon-left {
     left: 20px;
