@@ -397,8 +397,12 @@ body {
   }
 }
 .search-result {
+  display: none;
   margin-top: 74px;
   padding-bottom: 54px;
+}
+.search-result .hidden {
+  display: none;
 }
 .search-result__margin {
   width: 23.5%;
@@ -429,6 +433,90 @@ body {
   line-height: 25px;
   font-size: 1.5625em;
   color: #50e3c2;
+}
+.search-result__successful {
+  margin: 0 auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 29px;
+  margin-bottom: 78px;
+  margin-top: 59px;
+}
+.search-result__successful--item {
+  position: relative;
+  height: 200px;
+}
+.search-result__successful--item i {
+  color: #572ee5;
+}
+.search-result__successful--item--selected {
+  display: none;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #572ee5;
+  opacity: 0.6;
+}
+.search-result__successful--item--like, .search-result__successful--item--download, .search-result__successful--item--expand {
+  display: none;
+  cursor: pointer;
+  opacity: 0.7;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  position: absolute;
+  top: 10px;
+  background-color: #fff;
+  z-index: 2;
+}
+.search-result__successful--item--like {
+  right: 94px;
+}
+.search-result__successful--item--download {
+  right: 52px;
+}
+.search-result__successful--item--expand {
+  right: 10px;
+}
+.search-result__successful--item--gif-title {
+  display: none;
+  width: 97%;
+  margin: 0 auto;
+  position: absolute;
+  top: 132px;
+  left: 13px;
+  text-align: start;
+}
+.search-result__successful--item--gif-title span {
+  display: block;
+}
+.search-result__successful--item img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.search-result button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.8125em;
+  margin: 0 auto;
+  width: 127px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+  background-color: #37383C;
+}
+.search-result button:hover {
+  background-color: #fff;
+  color: #37383C;
 }
 
 @media only screen and (max-width: 1200px) {
