@@ -1,4 +1,4 @@
-const urlApi = "https://api.giphy.com/v1/gifs/trending";
+const urlApi = "https://api.giphy.com/v1/gifs/trending?";
 const trendingGifos = document.querySelector(".trending__gifos");
 const next = document.getElementById("next");
 const back = document.getElementById("back");
@@ -84,6 +84,9 @@ function download(event) {
 }
 
 function expand(event) {
+  swTrending = true;
+  swSearch = false;
+
   let overlay = document.querySelector(".overlay");
   let idImg = event.target.parentNode.parentElement.dataset.id;
   let imgModal = document.getElementById("image-modal");

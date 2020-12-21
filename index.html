@@ -59,12 +59,12 @@
               class="fas fa-times icon-right-close hidden"
               id="clear-search"
             ></i>
-            <div class="main__search--margin hidden hidden"></div>
+            <div class="main__search--margin hidden"></div>
             <ul id="suggestions" class="hidden main__search--suggestions">
-              <li> <i class="fas fa-search "></i><span></span></li>
-              <li> <i class="fas fa-search "></i><span></span></li>
-              <li> <i class="fas fa-search "></i><span></span></li>
-              <li> <i class="fas fa-search "></i><span></span></li>
+              <li><i class="fas fa-search"></i><span></span></li>
+              <li><i class="fas fa-search"></i><span></span></li>
+              <li><i class="fas fa-search"></i><span></span></li>
+              <li><i class="fas fa-search"></i><span></span></li>
             </ul>
           </div>
           <p>
@@ -75,7 +75,7 @@
         <section class="search-result">
           <div class="search-result__margin"></div>
           <h2 class="search-result__title">Lorem Ipsum</h2>
-          <div class="search-result__wrong">
+          <div class="search-result__wrong hidden">
             <img
               class="search-result__wrong--image"
               src="assets/img/icon-busqueda-sin-resultado.svg"
@@ -83,6 +83,8 @@
             />
             <p>Intenta con otra búsqueda.</p>
           </div>
+          <div class="search-result__successful hidden"></div>
+          <button class="hidden" id="see-more">ver más</button>
         </section>
         <section class="trending">
           <h3>Trending GIFOS</h3>

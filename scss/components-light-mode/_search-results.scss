@@ -1,30 +1,35 @@
-.search-result{
+.search-result {
+  display: none;
   margin-top: 74px;
   padding-bottom: 54px;
-  &__margin{
+  text-align: center;
+  .hidden {
+    display: none;
+  }
+  &__margin {
     width: 23.5%;
     height: 1px;
     background-color: $press-color;
     margin: 0 auto;
   }
-  &__title{
+  &__title {
     margin: 83.9px 0 0 0;
     text-align: center;
     color: $primary-color;
     line-height: 30px;
     font-size: $medium-subTitle-font-size-desktop;
   }
-  &__wrong{
+  &__wrong {
     width: 100%;
-    
-    &--image{
-      width:10.4% ;
+
+    &--image {
+      width: 10.4%;
       display: flex;
       height: 150px;
       margin: 0 auto;
       margin-top: 109px;
     }
-    p{
+    p {
       margin: 29px 0 0 0;
       text-align: center;
       line-height: 25px;
@@ -32,71 +37,163 @@
       color: $secundary-color;
     }
   }
+
+  &__successful {
+    margin: 0 auto;
+    width: 80%;
+    @include display-grid;
+    @include grid-template-columns(repeat(4, 1fr));
+    grid-gap: 29px;
+    margin-bottom: 78px;
+    margin-top: 59px;
+    &--item {
+      i {
+        color: $primary-color;
+      }
+      position: relative;
+      height: 200px;
+      &--selected {
+        display: none;
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        opacity: 0.6;
+      }
+      &--like,
+      &--download,
+      &--expand {
+        display: none;
+        cursor: pointer;
+        opacity: 0.7;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        position: absolute;
+        top: 10px;
+        background-color: $light-color;
+        z-index: 2;
+      }
+      &--like {
+        right: 94px;
+      }
+      &--download {
+        right: 52px;
+      }
+      &--expand {
+        right: 10px;
+      }
+      &--gif-title {
+        display: none;
+        width: 97%;
+        margin: 0 auto;
+        position: absolute;
+        top: 132px;
+        left: 13px;
+        text-align: start;
+        span {
+          display: block;
+        }
+      }
+      img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  button {
+    cursor: pointer;
+    text-align: center;
+    font-size: $small-font-size-desktop;
+    margin: 0 auto;
+    width: 127px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid $primary-color;
+    font-family: $secondary-font-family;
+    color: $primary-color;
+    background-color: $light-color;
+    font-weight: bold;
+    outline: none;
+  }
+  button:hover {
+    background-color: $primary-color;
+    color: $light-color;
+  }
 }
 
-
-
 @include media(desktop-m) {
-  .search-result{
-
-    &__margin{
+  .search-result {
+    &__margin {
       width: 35%;
     }
-    &__title{
+    &__title {
       margin: 55px;
       font-size: $small-subTitle-font-size-desktop;
     }
-    &__wrong{
-
-   
-      &--image{
+    &__wrong {
+      &--image {
         width: 12%;
         margin-top: 75px;
       }
-      p{
+      p {
         font-size: $normal-font-size-desktop;
       }
+    }
+    &__successful {
+      width: 90%;
     }
   }
 }
 
 @include media(tablet) {
-  .search-result{
+  .search-result {
     padding-bottom: 33px;
-    &__margin{
+    &__margin {
       width: 42%;
     }
-    &__wrong{
-
-      &--image{
+    &__wrong {
+      &--image {
         margin-top: 40px;
         width: 15%;
       }
+    }
+    &__successful {
+      @include grid-template-columns(repeat(3, 1fr));
     }
   }
 }
 
 @include media(mobile) {
-  .search-result{
-
-    &__margin{
+  .search-result {
+    &__margin {
       margin-top: 35px;
     }
-    &__title{
+    &__title {
       margin-top: 43px;
       font-size: $small-subTitle-font-size-mobile;
       line-height: 40px;
     }
-    &__wrong{
-
-     
-      &--image{
+    &__wrong {
+      &--image {
         margin-top: 35px;
         width: 20%;
       }
-      p{
+      p {
         font-size: $normal-font-size-mobile;
       }
     }
+    &__successful {
+      @include grid-template-columns(repeat(2, 1fr));
+      &--item {
+        position: relative;
+        height: 120px;
+      }
+    }
+  
   }
 }

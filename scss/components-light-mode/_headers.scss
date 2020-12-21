@@ -168,6 +168,13 @@
         height: 100%;
       }
     }
+
+    &__add:hover {
+      background-color: $light-color;
+      i{
+        color: $primary-color;
+      }
+    }
   }
 }
 

@@ -1,13 +1,15 @@
 
 const api_key = "vhJ8PRnNPlfioc3JHjAskmPh3GdPK2J1";
 var localTrendingGifs = [];
+var swTrending = false;
+var swSearch = false;
 
 if (JSON.parse(localStorage.getItem("favorites")) === null || JSON.parse(localStorage.getItem("favorites")) === undefined) {
   localStorage.setItem("favorites",JSON.stringify([]))
 } 
 
 async function getData(url, key) {
-  let baseApi = `${url}?api_key=${key}`;
+  let baseApi = `${url}api_key=${key}`;
   const response = await fetch(baseApi);
   const data = await response.json();
   return data;

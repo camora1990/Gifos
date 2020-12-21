@@ -169,6 +169,12 @@
         color: $primary-color;
       }
     }
+    &__add:hover {
+      background-color:  #37383C;
+      i{
+        color: $primary-color;
+      }
+    }
   }
 }
 

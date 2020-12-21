@@ -21,52 +21,72 @@ function closeModalGif(event) {
 }
 
 function nextModalGif(event) {
+  if (swSearch) {
+    nextGif(localDataSearch);
+  } else if (swTrending) {
+    nextGif(localTrendingGifs);
+  } else {
+  }
+}
+
+function nextGif(gifs) {
   let imgModal = document.getElementById("image-modal");
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
-  let modalLike = document.getElementById('modal-like')
-  if (positionGifs < localTrendingGifs.length) {
+  let modalLike = document.getElementById("modal-like");
+  if (positionGifs < gifs.length) {
     positionGifs++;
-    imgModal.dataset.id = `${localTrendingGifs[positionGifs].id}`;
-    imgModal.src = `${localTrendingGifs[positionGifs].images.original.url}`;
-    user.innerHTML = `${localTrendingGifs[positionGifs].username}`;
-    title.innerHTML = `${localTrendingGifs[positionGifs].title}`;
-    modalLike.classList.remove('fas')
-    modalLike.classList.remove('far')
+    imgModal.dataset.id = `${gifs[positionGifs].id}`;
+    imgModal.src = `${gifs[positionGifs].images.original.url}`;
+    user.innerHTML = `${gifs[positionGifs].username}`;
+    title.innerHTML = `${gifs[positionGifs].title}`;
+    modalLike.classList.remove("fas");
+    modalLike.classList.remove("far");
     let myGifs = [];
     myGifs = JSON.parse(localStorage.getItem("favorites"));
-    let indexMyGifs = myGifs.findIndex((data) => data.id === localTrendingGifs[positionGifs].id);
+    let indexMyGifs = myGifs.findIndex(
+      (data) => data.id === gifs[positionGifs].id
+    );
     if (indexMyGifs == -1) {
-      modalLike.classList.toggle("far")
+      modalLike.classList.toggle("far");
     } else {
-      modalLike.classList.toggle("fas")
-      
+      modalLike.classList.toggle("fas");
     }
   }
 }
 
 function backMoadalGif(event) {
+  if (swSearch) {
+    nextGif(localDataSearch);
+  } else if (swTrending) {
+    nextGif(localTrendingGifs);
+  } else {
+  }
+}
+
+function backGif(gifs) {
   let imgModal = document.getElementById("image-modal");
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
-  let modalLike = document.getElementById('modal-like')
+  let modalLike = document.getElementById("modal-like");
 
   if (positionGifs > 0) {
     positionGifs--;
-    imgModal.dataset.id = `${localTrendingGifs[positionGifs].id}`;
-    imgModal.src = `${localTrendingGifs[positionGifs].images.original.url}`;
-    user.innerHTML = `${localTrendingGifs[positionGifs].username}`;
-    title.innerHTML = `${localTrendingGifs[positionGifs].title}`;
-    modalLike.classList.remove('fas')
-    modalLike.classList.remove('far')
+    imgModal.dataset.id = `${gifs[positionGifs].id}`;
+    imgModal.src = `${gifs[positionGifs].images.original.url}`;
+    user.innerHTML = `${gifs[positionGifs].username}`;
+    title.innerHTML = `${gifs[positionGifs].title}`;
+    modalLike.classList.remove("fas");
+    modalLike.classList.remove("far");
     let myGifs = [];
     myGifs = JSON.parse(localStorage.getItem("favorites"));
-    let indexMyGifs = myGifs.findIndex((data) => data.id === localTrendingGifs[positionGifs].id);
+    let indexMyGifs = myGifs.findIndex(
+      (data) => data.id === gifs[positionGifs].id
+    );
     if (indexMyGifs == -1) {
-      modalLike.classList.toggle("far")
+      modalLike.classList.toggle("far");
     } else {
-      modalLike.classList.toggle("fas")
-      
+      modalLike.classList.toggle("fas");
     }
   }
 }

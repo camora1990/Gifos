@@ -188,6 +188,12 @@ body {
     height: 100%;
     color: #fff;
   }
+  .header__add:hover {
+    background-color: #37383C;
+  }
+  .header__add:hover i {
+    color: #fff;
+  }
 }
 .show-menu {
   display: block;
