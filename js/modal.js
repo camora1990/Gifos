@@ -25,7 +25,20 @@ function nextModalGif(event) {
     nextGif(localDataSearch);
   } else if (swTrending) {
     nextGif(localTrendingGifs);
-  } else {
+  } else if(swFavorites){
+    let tempFavorites = JSON.parse(localStorage.getItem("favorites"))
+    nextGif(tempFavorites);
+  }
+}
+
+function backMoadalGif(event) {
+  if (swSearch) {
+    nextGif(localDataSearch);
+  } else if (swTrending) {
+    nextGif(localTrendingGifs);
+  } else if(swFavorites){
+    let tempFavorites = JSON.parse(localStorage.getItem("favorites"))
+    backGif(tempFavorites);
   }
 }
 
@@ -34,10 +47,10 @@ function nextGif(gifs) {
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
   let modalLike = document.getElementById("modal-like");
-  if (positionGifs < gifs.length) {
+  if (positionGifs < gifs.length && gifs.length > positionGifs+1) {
     positionGifs++;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
-    imgModal.src = `${gifs[positionGifs].images.original.url}`;
+    imgModal.src = swFavorites?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
     user.innerHTML = `${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
@@ -55,14 +68,7 @@ function nextGif(gifs) {
   }
 }
 
-function backMoadalGif(event) {
-  if (swSearch) {
-    nextGif(localDataSearch);
-  } else if (swTrending) {
-    nextGif(localTrendingGifs);
-  } else {
-  }
-}
+
 
 function backGif(gifs) {
   let imgModal = document.getElementById("image-modal");
@@ -73,7 +79,7 @@ function backGif(gifs) {
   if (positionGifs > 0) {
     positionGifs--;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
-    imgModal.src = `${gifs[positionGifs].images.original.url}`;
+    imgModal.src = swFavorites?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
     user.innerHTML = `${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
@@ -97,15 +103,18 @@ function likeModalGif(event) {
   let imgModal = document.getElementById("image-modal");
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
+  debugger
   let id = imgModal.dataset.id;
-  debugger;
+ console.log(event)
   tempGif.push({
     id: imgModal.dataset.id,
     url: imgModal.src,
     title: user.textContent,
     user: title.textContent,
   });
-  console.log(tempGif);
+  if (swFavorites) {
+    validateMyFavoriteGifs(event.target.classList, tempGif, id)
+  }
   favoriteGif(id, tempGif, event);
 }
 

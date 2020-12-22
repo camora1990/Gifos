@@ -86,6 +86,7 @@ function download(event) {
 function expand(event) {
   swTrending = true;
   swSearch = false;
+  swFavorites = false;
 
   let overlay = document.querySelector(".overlay");
   let idImg = event.target.parentNode.parentElement.dataset.id;
@@ -111,6 +112,7 @@ function expand(event) {
 }
 
 function like(event) {
+  
   let id = event.target.parentNode.parentElement.dataset.id;
   let tempGif = localTrendingGifs.find((data) => data.id === id);
   let gif = [
@@ -118,9 +120,12 @@ function like(event) {
       id: tempGif.id,
       url: tempGif.images.original.url,
       title: tempGif.title,
-      user: tempGif.username,
+      user: tempGif.username
     },
   ];
+  if (swFavorites ) {
+    validateMyFavoriteGifs(event.target.classList,gif,id)
+  }
   favoriteGif(id, gif, event);
 }
 

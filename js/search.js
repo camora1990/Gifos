@@ -85,6 +85,7 @@ function searchEnter(event) {
     suggestions.classList.toggle("hidden");
     marginSearch.classList.toggle("hidden");
     searchGifs(event.target.value);
+    seeMore.style.display = 'none'
   }
 }
 
@@ -235,6 +236,7 @@ function searchDownload(event) {
 function searchExpand(event) {
   swTrending = false;
   swSearch = true;
+  swFavorites = false;
   let overlay = document.querySelector(".overlay");
   let idImg = event.target.parentNode.parentElement.dataset.id;
   let imgModal = document.getElementById("image-modal");
