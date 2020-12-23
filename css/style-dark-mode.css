@@ -1216,7 +1216,6 @@ body {
 }
 @media only screen and (max-width: 500px) {
   .my-favorities img {
-    margin-top: 5px;
     font-size: 1.25em;
   }
   .my-favorities__empty img {
@@ -1224,6 +1223,7 @@ body {
   }
   .my-favorities__result {
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 21px;
   }
   .my-favorities__result--item {
     position: relative;

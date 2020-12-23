@@ -39,7 +39,33 @@ function createTemplateFavoriteGifs(gifs) {
   </div>`;
 }
 
-function favoritiesExpandMobile(event) {}
+function favoritiesExpandMobile(event) {
+  swTrending = false;
+  swSearch = false;
+  swFavorites = true;
+  let overlay = document.querySelector(".overlay");
+  let idImg = event.path[1].dataset.id;
+  let imgModal = document.getElementById("image-modal");
+  let user = document.querySelector(".modal__information--user");
+  let title = document.querySelector(".modal__information--title");
+  let myGifs = [];
+
+  myGifs = JSON.parse(localStorage.getItem("favorites"));
+  let tempMyGifs = myGifs;
+  positionGifs = myGifs.findIndex((element) => element.id === idImg);
+  imgModal.src = `${myGifs[positionGifs].url}`;
+  imgModal.dataset.id = `${myGifs[positionGifs].id}`;
+  user.innerHTML = `${myGifs[positionGifs].username}`;
+  title.innerHTML = `${myGifs[positionGifs].title}`;
+
+  let indexMyGifs = myGifs.findIndex(
+    (data) => data.id === tempMyGifs[positionGifs].id
+  );
+  let clasIcon = indexMyGifs == -1 ? "far" : "fas";
+  document.getElementById("modal-like").classList.add(clasIcon);
+  overlay.style.display = "flex";
+  overlay.style.animation = "modalIn .8s forwards";
+}
 
 function favoritiesMouseOver(event) {
   event.target.childNodes[1].style.display = "block";

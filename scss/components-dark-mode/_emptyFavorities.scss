@@ -163,7 +163,6 @@
 @include media(mobile) {
   .my-favorities {
     img {
-      margin-top: 5px;
       font-size: $small-subTitle-font-size-mobile;
     }
 
@@ -174,6 +173,7 @@
     }
     &__result {
       @include grid-template-columns(repeat(2, 1fr));
+      grid-gap: 21px;
       &--item {
         position: relative;
         height: 120px;
