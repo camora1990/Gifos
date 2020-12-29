@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script
+    src="https://kit.fontawesome.com/90cf718084.js"
+    crossorigin="anonymous"
+  ></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="" id="mode-style" />
+    <title>GIFOS</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a class="header__logo" href="index.html">
+              <img src="assets/logos/logo-desktop.svg" alt="" />
+            </a>
+            <nav class="header__menu">
+              <ul>
+                <li><a id="change-mode" href="#">modo nocturno</a><span></span></li>
+                <li>
+                  <a id="favorites" href="favoritos.html">favoritos</a><span></span>
+                </li>
+                <li><a id="my-gifs" href="#">mis gifos</a><span></span></li>
+              </ul>
+            </nav>
+            <div class="header__add">
+              <i id="icon" class="fas fa-plus"></i>
+            </div>
+          </header> 
+
+          <main>
+            <div class="video-container" >
+              <div class="video-container__item-left">
+                <img class="video-container__item-left--camera" src="assets/img/camara.svg" alt="" srcset="">
+                <img class="video-container__item-left--light" src="assets/img/element-luz-camara.svg" alt="" srcset="">
+              </div>
+              <div class="video-container__item-center">
+                <div class="focus-left-top"></div>
+                <div class="focus-left-bottom"></div>
+                <div class="focus-right-top"></div>
+                <div class="focus-right-bottom"></div>
+                <div class="video-container__item-center--step0">
+                  <h2>Aquí podrás <br> crear tus propios <span>GIFOS</span> </h2>
+                  <p>¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</p>
+                </div>
+                <video id="record-gifs"></video>
+              </div>
+              <div class="video-container__item-right">
+                <img class="pelicula" src="assets/img/pelicula.svg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="video-steps">
+              <div class="video-steps__numbers">
+                <div class="video-steps__numbers--1">1</div>
+                <div class="video-steps__numbers--2">2</div>
+                <div class="video-steps__numbers--3">3</div>
+              </div>
+              <div class="video-steps__margin"></div>
+            </div>
+            <button  id="start">comenzar</button>
+            <button  id="record">Grabar</button>
+          </main>
+          <footer class="footer">
+            <div class="footer__social-media">
+              <p>Compartir en:</p>
+              <div class="footer__social-media--items">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
+            </div>
+            <div class="footer__reserved-right">
+              <p>© GIFOS 2020 All Rights Reserved.</p>
+            </div>
+          </footer>
+    </div>
+   
+      <script src="js/globals.js"></script>
+      <script src="js/menu.js"></script>
+      <script src="js/createGifs.js"></script>
+     
+</body>
+</html>

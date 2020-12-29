@@ -124,6 +124,9 @@ body {
   .header__logo__menu li {
     margin-right: 20px;
   }
+  .header__logo__menu li a:hover {
+    display: none;
+  }
   .header__add {
     margin-right: 5%;
   }
@@ -1125,7 +1128,7 @@ body {
 }
 .my-favorities__result {
   margin: 0 auto;
-  width: 80%;
+  width: 78.2%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 29px;
@@ -1197,6 +1200,7 @@ body {
   cursor: pointer;
   text-align: center;
   font-size: 0.8125em;
+  margin: 0 auto;
   width: 127px;
   height: 50px;
   border-radius: 25px;
@@ -1240,4 +1244,172 @@ body {
     position: relative;
     height: 120px;
   }
+}
+.video-container {
+  margin-top: 99px;
+  display: grid;
+  grid-template-columns: 26% 48% 26%;
+  grid-template-rows: 390px;
+}
+.video-container__item-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.video-container__item-left--camera {
+  display: flex;
+  width: 123px;
+  height: 162px;
+}
+.video-container__item-left--light {
+  width: 91px;
+  height: 151px;
+  display: flex;
+  margin: 2px;
+}
+.video-container__item-center {
+  border: 1px solid #572ee5;
+  position: relative;
+}
+.video-container__item-center .focus-left-top,
+.video-container__item-center .focus-right-top,
+.video-container__item-center .focus-left-bottom,
+.video-container__item-center .focus-right-bottom {
+  position: absolute;
+  width: 27px;
+  height: 25px;
+}
+.video-container__item-center .focus-left-top {
+  top: 24px;
+  left: 20px;
+  border-left: 1px solid #50e3c2;
+  border-top: 1px solid #50e3c2;
+}
+.video-container__item-center .focus-right-top {
+  top: 24px;
+  right: 20px;
+  border-top: 1px solid #50e3c2;
+  border-right: 1px solid #50e3c2;
+}
+.video-container__item-center .focus-left-bottom {
+  bottom: 24px;
+  left: 20px;
+  border-bottom: 1px solid #50e3c2;
+  border-left: 1px solid #50e3c2;
+}
+.video-container__item-center .focus-right-bottom {
+  bottom: 24px;
+  right: 20px;
+  border-bottom: 1px solid #50e3c2;
+  border-right: 1px solid #50e3c2;
+}
+.video-container__item-center--step0 {
+  margin: 138px auto;
+  width: 80%;
+  text-align: center;
+}
+.video-container__item-center--step0 h2 {
+  line-height: 35px;
+  font-size: 1.5625em;
+  color: #572ee5;
+  margin: 0;
+}
+.video-container__item-center--step0 span {
+  color: #50e3c2;
+}
+.video-container__item-center--step0 p {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  line-height: 29px;
+}
+.video-container__item-center #record-gifs {
+  display: none;
+  width: 70%;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.video-container__item-right {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+.video-container__item-right .pelicula {
+  margin-left: 67px;
+  position: absolute;
+  bottom: -82px;
+  width: 142px;
+  height: 88px;
+}
+
+main button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.8125em;
+  margin: 20px auto;
+  width: 127px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #572ee5;
+  font-family: "Roboto", sans-serif;
+  color: #572ee5;
+  background-color: #fff;
+  font-weight: bold;
+  outline: none;
+  display: block;
+}
+main button:hover {
+  background-color: #572ee5;
+  color: #fff;
+}
+main #record {
+  display: none;
+}
+
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+}
+
+.video-steps {
+  position: relative;
+  width: 55%;
+  margin: 0 auto;
+}
+.video-steps__margin {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 7px;
+  border-radius: 5px;
+  background-color: #572ee5;
+}
+.video-steps__numbers {
+  width: 20%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+.video-steps__numbers--1, .video-steps__numbers--3, .video-steps__numbers--2 {
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  height: 32px;
+  width: 32px;
+  margin-top: 24px;
+  margin-bottom: 25px;
+  text-align: center;
+  border: 1px solid #572ee5;
+  border-radius: 50%;
+  color: #572ee5;
+  font-size: 1.125em;
+}
+.step-selected {
+  background-color: #572ee5;
+  color: #fff;
 }

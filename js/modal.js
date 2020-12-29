@@ -51,7 +51,7 @@ function nextGif(gifs) {
     positionGifs++;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
     imgModal.src = swFavorites?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
-    user.innerHTML = `${gifs[positionGifs].username}`;
+    user.innerHTML = swFavorites?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
     modalLike.classList.remove("far");
@@ -80,7 +80,7 @@ function backGif(gifs) {
     positionGifs--;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
     imgModal.src = swFavorites?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
-    user.innerHTML = `${gifs[positionGifs].username}`;
+    user.innerHTML = swFavorites?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
     modalLike.classList.remove("far");

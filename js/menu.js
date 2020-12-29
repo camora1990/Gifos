@@ -55,7 +55,7 @@ function showMenu(event) {
 }
 
 function createGif() {
-  alert("prueba");
+  
 }
 
 function changeMode(event) {

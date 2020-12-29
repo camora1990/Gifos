@@ -2,21 +2,45 @@ const favoritesMenu = document.getElementById("favorites");
 const containerFavoriteGifs = document.querySelector(".my-favorities__result");
 const myFavoritesEmpty = document.querySelector(".my-favorities__empty");
 const seeMoreFavorites = document.getElementById("see-more-favorities");
+var paginacionFavorites = 0;
 swFavorites = true;
 var favoriteGifs = JSON.parse(localStorage.getItem("favorites"));
 
-favoritesMenu.style.color = "#9CAFC3";
 
-if (favoriteGifs.length > 0) {
-  myFavoritesEmpty.style.display = "none";
-  containerFavoriteGifs.classList.remove("hidden");
-  favoriteGifs.forEach((element) => {
-    containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(element);
-  });
-} else {
-  myFavoritesEmpty.style.display = "block";
-  containerFavoriteGifs.classList.add("hidden");
+
+
+
+favoritesMenu.style.color = "#9CAFC3";
+function addFavorites() {
+  debugger
+  if (favoriteGifs.length > 0) {
+    seeMoreFavorites.addEventListener('click', seeMoreGifs)
+    myFavoritesEmpty.style.display = "none";
+    containerFavoriteGifs.classList.remove("hidden");
+    for (let index = paginacionFavorites; index < favoriteGifs.length; index++) {
+      if ((index + 1) % 12 == 0) {
+        paginacionFavorites = index + 1
+        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(favoriteGifs[index]);
+        if (paginacionFavorites < favoriteGifs.length) {
+          seeMoreFavorites.style.display = "block";
+        } else {
+          seeMoreFavorites.style.display = "none";
+        }
+        break;
+      } else {
+        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(favoriteGifs[index]);
+        
+      }
+      
+    }
+  } else {
+    myFavoritesEmpty.style.display = "block";
+    containerFavoriteGifs.classList.add("hidden");
+    seeMoreFavorites.style.display = "none";
+  }
 }
+
+addFavorites()
 
 function createTemplateFavoriteGifs(gifs) {
   return `<div class="my-favorities__result--item" data-id="${gifs.id}" onclick="favoritiesExpandMobile(event)" onmouseenter="favoritiesMouseOver(event)" onmouseleave="favoritiesMouseLeave(event)">
@@ -34,9 +58,20 @@ function createTemplateFavoriteGifs(gifs) {
       alt="${gifs.title}"
     />
     <div class="my-favorities__result--item--gif-title">
+    <span class="favorities--user">${gifs.user}</span>
       <span class="favorities--title">${gifs.title}</span>
     </div>
   </div>`;
+}
+
+function seeMoreGifs(event) {
+  addFavorites()
+  let tempcontainerFavoriteGifs = document.querySelector(".my-favorities__result");
+  if (containerFavoriteGifs.children.length == favoriteGifs.length ) {
+    seeMoreFavorites.style.display = "none";
+  } else {
+    seeMoreFavorites.style.display = "block";
+  }
 }
 
 function favoritiesExpandMobile(event) {
@@ -55,7 +90,7 @@ function favoritiesExpandMobile(event) {
   positionGifs = myGifs.findIndex((element) => element.id === idImg);
   imgModal.src = `${myGifs[positionGifs].url}`;
   imgModal.dataset.id = `${myGifs[positionGifs].id}`;
-  user.innerHTML = `${myGifs[positionGifs].username}`;
+  user.innerHTML = `${myGifs[positionGifs].user}`;
   title.innerHTML = `${myGifs[positionGifs].title}`;
 
   let indexMyGifs = myGifs.findIndex(
@@ -158,7 +193,7 @@ function favoritiesExpand(event) {
   positionGifs = myGifs.findIndex((element) => element.id === idImg);
   imgModal.src = `${myGifs[positionGifs].url}`;
   imgModal.dataset.id = `${myGifs[positionGifs].id}`;
-  user.innerHTML = `${myGifs[positionGifs].username}`;
+  user.innerHTML = `${myGifs[positionGifs].user}`;
   title.innerHTML = `${myGifs[positionGifs].title}`;
 
   let indexMyGifs = myGifs.findIndex(

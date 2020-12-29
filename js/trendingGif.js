@@ -112,7 +112,7 @@ function expand(event) {
 }
 
 function like(event) {
-  
+  debugger
   let id = event.target.parentNode.parentElement.dataset.id;
   let tempGif = localTrendingGifs.find((data) => data.id === id);
   let gif = [

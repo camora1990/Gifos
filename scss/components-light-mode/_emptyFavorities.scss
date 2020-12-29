@@ -36,7 +36,7 @@
   &__result {
     // display: none;
     margin: 0 auto;
-    width: 80%;
+    width: 78.2%;
     @include display-grid;
     @include grid-template-columns(repeat(4, 1fr));
     grid-gap: 29px;
@@ -110,7 +110,7 @@
     cursor: pointer;
     text-align: center;
     font-size: $small-font-size-desktop;
-
+    margin: 0 auto;
     width: 127px;
     height: 50px;
     border-radius: 25px;
@@ -143,16 +143,6 @@
 
 @include media(tablet) {
   .my-favorities {
-    img {
-    }
-    h2 {
-    }
-    &__empty {
-      img {
-      }
-      p {
-      }
-    }
     &__result {
       @include grid-template-columns(repeat(3, 1fr));
     }

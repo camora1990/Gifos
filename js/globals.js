@@ -3,6 +3,8 @@ var localTrendingGifs = [];
 var swTrending = false;
 var swSearch = false;
 var swFavorites = false;
+const footer = document.querySelector('.footer')
+footer.classList.remove('footer-fixed')
 
 if (
   JSON.parse(localStorage.getItem("favorites")) === null ||
@@ -40,7 +42,7 @@ function favoriteGif(id, arrayGif, event) {
       id: arrayGif[0].id,
       url: arrayGif[0].url,
       title: arrayGif[0].title,
-      user: arrayGif[0].username,
+      user: arrayGif[0].user,
     });
     localStorage.setItem("favorites", JSON.stringify(myGifs));
   } else {
