@@ -1,37 +1,34 @@
-const favoritesMenu = document.getElementById("favorites");
+const myGifsMenu = document.getElementById("my-gifs");
 const containerFavoriteGifs = document.querySelector(".my-favorities__result");
 const myFavoritesEmpty = document.querySelector(".my-favorities__empty");
 const seeMoreFavorites = document.getElementById("see-more-favorities");
 var paginacionFavorites = 0;
-swFavorites = true;
-var favoriteGifs = JSON.parse(localStorage.getItem("favorites"));
+swMyGifs = true;
+var myGifs = JSON.parse(localStorage.getItem("myGifs"));
 
-
-
-
-
-favoritesMenu.style.color = "#9CAFC3";
+myGifsMenu.style.color = "#9CAFC3";
 function addFavorites() {
-
-  if (favoriteGifs.length > 0) {
-    seeMoreFavorites.addEventListener('click', seeMoreGifs)
+  if (myGifs.length > 0) {
+    seeMoreFavorites.addEventListener("click", seeMoreGifs);
     myFavoritesEmpty.style.display = "none";
     containerFavoriteGifs.classList.remove("hidden");
-    for (let index = paginacionFavorites; index < favoriteGifs.length; index++) {
+    for (let index = paginacionFavorites; index < myGifs.length; index++) {
       if ((index + 1) % 12 == 0) {
-        paginacionFavorites = index + 1
-        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(favoriteGifs[index]);
-        if (paginacionFavorites < favoriteGifs.length) {
+        paginacionFavorites = index + 1;
+        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(
+          myGifs[index]
+        );
+        if (paginacionFavorites < myGifs.length) {
           seeMoreFavorites.style.display = "block";
         } else {
           seeMoreFavorites.style.display = "none";
         }
         break;
       } else {
-        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(favoriteGifs[index]);
-        
+        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(
+          myGifs[index]
+        );
       }
-      
     }
   } else {
     myFavoritesEmpty.style.display = "block";
@@ -40,13 +37,13 @@ function addFavorites() {
   }
 }
 
-addFavorites()
+addFavorites();
 
 function createTemplateFavoriteGifs(gifs) {
   return `<div class="my-favorities__result--item" data-id="${gifs.id}" onclick="favoritiesExpandMobile(event)" onmouseenter="favoritiesMouseOver(event)" onmouseleave="favoritiesMouseLeave(event)">
     <div class="my-favorities__result--item--selected"></div>
     <div class="my-favorities__result--item--like" onmouseenter="preferencefavoritiesMouseOver(event)" onmouseleave="preferencefavoritiesMouseLeave(event)" >
-      <i class="fas fa-heart" onclick="favoritiesLike(event)"></i>
+      <i class="fas fa-trash-alt" onclick="favoritiesLike(event)"></i>
     </div>
     <div class="my-favorities__result--item--download" onmouseenter="preferencefavoritiesMouseOver(event)" onmouseleave="preferencefavoritiesMouseLeave(event)"><i class="fas fa-download" onclick="favoritiesDownload(event)"></i>
     </div>
@@ -65,9 +62,11 @@ function createTemplateFavoriteGifs(gifs) {
 }
 
 function seeMoreGifs(event) {
-  addFavorites()
-  let tempcontainerFavoriteGifs = document.querySelector(".my-favorities__result");
-  if (containerFavoriteGifs.children.length == favoriteGifs.length ) {
+  addFavorites();
+  let tempcontainerFavoriteGifs = document.querySelector(
+    ".my-favorities__result"
+  );
+  if (containerFavoriteGifs.children.length == myGifs.length) {
     seeMoreFavorites.style.display = "none";
   } else {
     seeMoreFavorites.style.display = "block";
@@ -77,16 +76,17 @@ function seeMoreGifs(event) {
 function favoritiesExpandMobile(event) {
   swTrending = false;
   swSearch = false;
-  swMyGifs = false;
-  swFavorites = true;
+  swFavorites = false;
+  swMyGifs = true;
+  console.log(event)
   let overlay = document.querySelector(".overlay");
-  let idImg = event.path[1].dataset.id;
+  let idImg = event.currentTarget.dataset.id;
   let imgModal = document.getElementById("image-modal");
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
   let myGifs = [];
 
-  myGifs = JSON.parse(localStorage.getItem("favorites"));
+  myGifs = JSON.parse(localStorage.getItem("myGifs"));
   let tempMyGifs = myGifs;
   positionGifs = myGifs.findIndex((element) => element.id === idImg);
   imgModal.src = `${myGifs[positionGifs].url}`;
@@ -109,7 +109,7 @@ function favoritiesMouseOver(event) {
   event.target.childNodes[3].childNodes[1].classList.remove("fas");
   event.target.childNodes[3].childNodes[1].classList.remove("far");
 
-  let myGifs = JSON.parse(localStorage.getItem("favorites"));
+  let myGifs = JSON.parse(localStorage.getItem("myGifs"));
   let indexMyGifs = myGifs.findIndex(
     (data) => data.id === event.target.dataset.id
   );
@@ -151,7 +151,7 @@ function preferencefavoritiesMouseLeave(event) {
 }
 
 function favoritiesLike(event) {
-  let temFavoriteGifs = JSON.parse(localStorage.getItem("favorites"));
+  let temFavoriteGifs = JSON.parse(localStorage.getItem("myGifs"));
   if (temFavoriteGifs.length == 1) {
     seeMoreFavorites.classList.add("hidden");
     myFavoritesEmpty.style.display = "block";
@@ -162,13 +162,13 @@ function favoritiesLike(event) {
     containerFavoriteGifs.classList.remove("hidden");
   }
   let id = event.target.parentNode.parentNode.dataset.id;
-  let temfavoriteGifs = JSON.parse(localStorage.getItem("favorites"));
+  let temfavoriteGifs = JSON.parse(localStorage.getItem("myGifs"));
   let temIndextemfavoriteGifs = temfavoriteGifs.findIndex(
     (data) => data.id === id
   );
   containerFavoriteGifs.children[temIndextemfavoriteGifs].remove();
   temfavoriteGifs.splice(temIndextemfavoriteGifs, 1);
-  localStorage.setItem("favorites", JSON.stringify(temfavoriteGifs));
+  localStorage.setItem("myGifs", JSON.stringify(temfavoriteGifs));
 }
 
 function favoritiesDownload(event) {
@@ -181,7 +181,8 @@ function favoritiesDownload(event) {
 function favoritiesExpand(event) {
   swTrending = false;
   swSearch = false;
-  swFavorites = true;
+  swFavorites = false;
+  swMyGifs = true;
   let overlay = document.querySelector(".overlay");
   let idImg = event.target.parentNode.parentElement.dataset.id;
   let imgModal = document.getElementById("image-modal");
@@ -189,7 +190,7 @@ function favoritiesExpand(event) {
   let title = document.querySelector(".modal__information--title");
   let myGifs = [];
 
-  myGifs = JSON.parse(localStorage.getItem("favorites"));
+  myGifs = JSON.parse(localStorage.getItem("myGifs"));
   let tempMyGifs = myGifs;
   positionGifs = myGifs.findIndex((element) => element.id === idImg);
   imgModal.src = `${myGifs[positionGifs].url}`;
@@ -207,7 +208,7 @@ function favoritiesExpand(event) {
 }
 
 function validateMyFavoriteGifs(classLike, gif, id) {
-  let temFavoriteGifs = JSON.parse(localStorage.getItem("favorites"));
+  let temFavoriteGifs = JSON.parse(localStorage.getItem("myGifs"));
   if (temFavoriteGifs.length == 1 && classLike.contains("fas")) {
     seeMoreFavorites.classList.add("hidden");
     myFavoritesEmpty.style.display = "block";
@@ -220,8 +221,8 @@ function validateMyFavoriteGifs(classLike, gif, id) {
 
   if (classLike.contains("far")) {
     containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(gif[0]);
-  } else if (swFavorites && classLike.contains("fas")) {
-    let temfavoriteGifs = JSON.parse(localStorage.getItem("favorites"));
+  } else if (swMyGifs && classLike.contains("fas")) {
+    let temfavoriteGifs = JSON.parse(localStorage.getItem("myGifs"));
     let temIndextemfavoriteGifs = temfavoriteGifs.findIndex(
       (data) => data.id === id
     );

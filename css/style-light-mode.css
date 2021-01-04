@@ -128,6 +128,7 @@ body {
     display: none;
   }
   .header__add {
+    display: none;
     margin-right: 5%;
   }
 }
@@ -1249,7 +1250,7 @@ body {
   margin-top: 99px;
   display: grid;
   grid-template-columns: 26% 48% 26%;
-  grid-template-rows: 390px;
+  grid-template-rows: 50vh;
 }
 .video-container__item-left {
   display: flex;
@@ -1323,16 +1324,37 @@ body {
   font-size: 1em;
   line-height: 29px;
 }
-.video-container__item-center #record-gifs {
+.video-container__item-center .video-record,
+.video-container__item-center .preview-recording,
+.video-container__item-center .loading {
   display: none;
   width: 70%;
-  height: 320px;
+  height: 80%;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
+}
+.video-container__item-center .loading {
+  align-items: center;
+  background-color: #572ee5;
+  opacity: 0.4;
+}
+.video-container__item-center .loading__container {
+  margin: auto;
+}
+.video-container__item-center .loading__container img {
+  width: 22px;
+  height: 22px;
+  margin: 0 auto;
+  display: flex;
+}
+.video-container__item-center .loading__container p {
+  margin: 10px 0 0 0;
+  color: #fff;
+  text-align: center;
 }
 .video-container__item-right {
   position: relative;
@@ -1370,16 +1392,16 @@ main button:hover {
 main #record {
   display: none;
 }
-
-.footer-fixed {
-  position: fixed;
-  bottom: 0;
+main #upload {
+  display: none;
 }
 
 .video-steps {
   position: relative;
   width: 55%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 .video-steps__margin {
   position: absolute;
@@ -1409,6 +1431,25 @@ main #record {
   color: #572ee5;
   font-size: 1.125em;
 }
+.video-steps__timer {
+  display: none;
+  height: 20px;
+  position: absolute;
+  right: 55px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  color: #572ee5;
+  line-height: 22px;
+  font-weight: bold;
+  font-size: 0.9375em;
+}
+
+.repeat {
+  cursor: pointer;
+  border-bottom: 2px solid #50e3c2;
+}
+
 .step-selected {
   background-color: #572ee5;
   color: #fff;

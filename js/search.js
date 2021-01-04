@@ -236,6 +236,7 @@ function searchDownload(event) {
 function searchExpand(event) {
   swTrending = false;
   swSearch = true;
+  swMyGifs = false;
   swFavorites = false;
   let overlay = document.querySelector(".overlay");
   let idImg = event.target.parentNode.parentElement.dataset.id;

@@ -3,6 +3,8 @@ var localTrendingGifs = [];
 var swTrending = false;
 var swSearch = false;
 var swFavorites = false;
+var swCreate = false;
+var swMyGifs = false;
 const footer = document.querySelector('.footer')
 footer.classList.remove('footer-fixed')
 

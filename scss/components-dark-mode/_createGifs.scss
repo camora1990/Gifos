@@ -69,6 +69,7 @@
       }
       p {
         margin: 0;
+        color: $press-color;
         font-family: $secondary-font-family;
         font-size: $medium-font-size-desktop;
         line-height: 29px;
@@ -89,7 +90,7 @@
     }
     .loading {
       align-items: center;
-      background-color: $primary-color;
+      background-color: #572ee5;
       opacity: 0.4;
       &__container{
         margin: auto;
@@ -135,14 +136,14 @@ main {
     border: 1px solid $primary-color;
     font-family: $secondary-font-family;
     color: $primary-color;
-    background-color: $light-color;
+    background-color: #37383C;
     font-weight: bold;
     outline: none;
     display: block;
   }
   button:hover {
     background-color: $primary-color;
-    color: $light-color;
+    color: #37383C;
   }
   #record {
     display: none;
@@ -219,5 +220,5 @@ main {
 
 .step-selected {
   background-color: $primary-color;
-  color: $light-color;
+  color: #37383C;;
 }

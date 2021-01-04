@@ -86,6 +86,7 @@ function download(event) {
 function expand(event) {
   swTrending = true;
   swSearch = false;
+  swMyGifs = false;
   swFavorites = false;
 
   let overlay = document.querySelector(".overlay");

@@ -28,6 +28,9 @@ function nextModalGif(event) {
   } else if(swFavorites){
     let tempFavorites = JSON.parse(localStorage.getItem("favorites"))
     nextGif(tempFavorites);
+  }else {
+    let tempmyGifs = JSON.parse(localStorage.getItem("myGifs"))
+    nextGif(tempmyGifs);
   }
 }
 
@@ -39,6 +42,9 @@ function backMoadalGif(event) {
   } else if(swFavorites){
     let tempFavorites = JSON.parse(localStorage.getItem("favorites"))
     backGif(tempFavorites);
+  }else{
+    let tempmyGifs = JSON.parse(localStorage.getItem("myGifs"))
+    backGif(tempmyGifs);
   }
 }
 
@@ -50,8 +56,8 @@ function nextGif(gifs) {
   if (positionGifs < gifs.length && gifs.length > positionGifs+1) {
     positionGifs++;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
-    imgModal.src = swFavorites?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
-    user.innerHTML = swFavorites?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
+    imgModal.src = swFavorites || swMyGifs?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
+    user.innerHTML = swFavorites || swMyGifs?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
     modalLike.classList.remove("far");
@@ -79,8 +85,8 @@ function backGif(gifs) {
   if (positionGifs > 0) {
     positionGifs--;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
-    imgModal.src = swFavorites?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
-    user.innerHTML = swFavorites?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
+    imgModal.src = swFavorites || swMyGifs?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
+    user.innerHTML = swFavorites || swMyGifs?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
     modalLike.classList.remove("far");

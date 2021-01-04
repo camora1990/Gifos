@@ -13,14 +13,14 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&family=Roboto&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="" id="mode-style" />
+  <link rel="stylesheet" href="css/style-light-mode.css" id="mode-style" />
     <title>GIFOS</title>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <a class="header__logo" href="index.html">
-              <img src="assets/logos/logo-desktop.svg" alt="" />
+              <img src="assets/logos/logo_desktop.svg" alt="logo" />
             </a>
             <nav class="header__menu">
               <ul>
@@ -28,7 +28,7 @@
                 <li>
                   <a id="favorites" href="favoritos.html">favoritos</a><span></span>
                 </li>
-                <li><a id="my-gifs" href="#">mis gifos</a><span></span></li>
+                <li><a id="my-gifs" href="myGifs.html">mis gifos</a><span></span></li>
               </ul>
             </nav>
             <div class="header__add">
@@ -39,8 +39,8 @@
           <main>
             <div class="video-container" >
               <div class="video-container__item-left">
-                <img class="video-container__item-left--camera" src="assets/img/camara.svg" alt="" srcset="">
-                <img class="video-container__item-left--light" src="assets/img/element-luz-camara.svg" alt="" srcset="">
+                <img class="video-container__item-left--camera" src="assets/img/camara.svg" alt="camara" >
+                <img class="video-container__item-left--light" src="assets/img/element-luz-camara.svg" alt="luz camara" >
               </div>
               <div class="video-container__item-center">
                 <div class="focus-left-top"></div>
@@ -51,10 +51,17 @@
                   <h2>Aquí podrás <br> crear tus propios <span>GIFOS</span> </h2>
                   <p>¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</p>
                 </div>
-                <video id="record-gifs"></video>
+                <video class="video-record" id="record-gifs"></video>
+                <img class="preview-recording" id="preview" src="assets/img/Spinner-1s-200px.svg" alt="camara">
+                <div class="loading">
+                  <div class="loading__container">
+                    <img src="assets/img/Spinner-1s-200px.svg" alt="carga">
+                    <p>Estamos subiendo tu GIFO</p>
+                  </div>
+                </div>
               </div>
               <div class="video-container__item-right">
-                <img class="pelicula" src="assets/img/pelicula.svg" alt="" srcset="">
+                <video class="pelicula" src="assets/img/pelicula.svg" ></video>
               </div>
             </div>
             <div class="video-steps">
@@ -63,10 +70,12 @@
                 <div class="video-steps__numbers--2">2</div>
                 <div class="video-steps__numbers--3">3</div>
               </div>
+              <p class="video-steps__timer">00:00:00</p>
               <div class="video-steps__margin"></div>
             </div>
-            <button  id="start">comenzar</button>
-            <button  id="record">Grabar</button>
+            <button  id="start">COMENZAR</button>
+            <button  id="record">GRABAR</button>
+            <button  id="upload">SUBIR GIFO</button>
           </main>
           <footer class="footer">
             <div class="footer__social-media">
@@ -81,11 +90,13 @@
               <p>© GIFOS 2020 All Rights Reserved.</p>
             </div>
           </footer>
+          
     </div>
    
       <script src="js/globals.js"></script>
-      <script src="js/menu.js"></script>
       <script src="js/createGifs.js"></script>
+      <script src="js/menu.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
      
 </body>
 </html>

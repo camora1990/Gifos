@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <script
       src="https://kit.fontawesome.com/90cf718084.js"
       crossorigin="anonymous"
@@ -20,73 +18,35 @@
     <div class="container">
       <header class="header">
         <a class="header__logo" href="index.html">
-          <img src="assets/logos/logo_desktop.svg" alt="logo" />
+          <img src="assets/logos/logo_desktop.svg" alt="" />
         </a>
         <nav class="header__menu">
           <ul>
             <li><a id="change-mode" href="#">modo nocturno</a><span></span></li>
             <li>
-              <a id="favorites" href="favoritos.html">favoritos</a><span></span>
+              <a id="favorites"  href="favoritos.html">favoritos</a
+              ><span></span>
             </li>
-            <li><a id="my-gifs" href="myGifs.html">mis gifos</a><span></span></li>
+            <li><a id="my-gifs" href="#">mis gifos</a><span></span></li>
           </ul>
         </nav>
         <div class="header__add">
-          <a href="#">
+          <a href="crear-gif.html">
             <i id="icon" class="fas fa-plus"></i>
           </a>
         </div>
       </header>
       <main class="main--section">
-        <section class="main">
-          <div class="main__title">
-            <h1>
-              Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span>
-            </h1>
+        <section class="my-favorities">
+          <img src="assets/img/icon-mis-gifos.svg" alt="">
+          <h2>Mis GIFOS</h2>
+          <div class="my-favorities__empty">
+            <img class="my-favorities__empty--icon" src="assets/img/icon-mis-gifos-sin-contenido.svg" alt="">
+            <p>¡Anímate a crear tu primer GIFO!</p>
           </div>
-          <div class="main__image">
-            <img src="assets/img/ilustra_header.svg" alt="ilustra" />
+          <div class="my-favorities__result hidden">
           </div>
-          <div class="main__search">
-            <i class="fas fa-search icon-left"></i>
-            <input
-              name="search"
-              id="search"
-              type="text"
-              placeholder="Busca GIFOS y más"
-              autocomplete="off"
-            />
-            <i class="fas fa-search icon-right" id="icon-search"></i>
-            <i
-              class="fas fa-times icon-right-close hidden"
-              id="clear-search"
-            ></i>
-            <div class="main__search--margin hidden"></div>
-            <ul id="suggestions" class="hidden main__search--suggestions">
-              <li><i class="fas fa-search"></i><span></span></li>
-              <li><i class="fas fa-search"></i><span></span></li>
-              <li><i class="fas fa-search"></i><span></span></li>
-              <li><i class="fas fa-search"></i><span></span></li>
-            </ul>
-          </div>
-          <p>
-            <span>Trending:</span> <br />
-            Reactions, Entertainment, Sports, Stickers, Artists
-          </p>
-        </section>
-        <section class="search-result">
-          <div class="search-result__margin"></div>
-          <h2 class="search-result__title">Lorem Ipsum</h2>
-          <div class="search-result__wrong hidden">
-            <img
-              class="search-result__wrong--image"
-              src="assets/img/icon_busqueda_sin_resultado.svg"
-              alt="not fount"
-            />
-            <p>Intenta con otra búsqueda.</p>
-          </div>
-          <div class="search-result__successful hidden"></div>
-          <button class="hidden" id="see-more">ver más</button>
+          <button  id="see-more-favorities">ver más</button>
         </section>
         <section class="trending">
           <h3>Trending GIFOS</h3>
@@ -143,7 +103,7 @@
     <script src="js/globals.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/search.js"></script>
+    <script src="js/myGifs.js"></script>
     <script src="js/trendingGif.js"></script>
   </body>
 </html>
