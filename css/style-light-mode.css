@@ -1395,6 +1395,9 @@ main #record {
 main #upload {
   display: none;
 }
+main #new {
+  display: none;
+}
 
 .video-steps {
   position: relative;

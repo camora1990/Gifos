@@ -6,13 +6,10 @@ const device = window.matchMedia("screen and (max-width: 500px)");
 const mode = document.getElementById("change-mode");
 const css = document.getElementById("mode-style");
 
-// icon.addEventListener('click', navigate)
+
 window.document.addEventListener("scroll", eventScroll);
 device.addEventListener("change", validation);
 mode.addEventListener("click", changeMode);
-
-
-
 
 
 function eventScroll(event) {
@@ -44,14 +41,13 @@ if (theme === undefined || theme === null) {
 }
 
 function validation(event) {
+
   if (event.matches) {
     icon.parentNode.href = "#"
     icon.classList.add("fa-bars");
     icon.classList.remove("fa-plus");
     icon.removeEventListener("click", createGif);
     icon.addEventListener("click", showMenu);
-
-
   } else {
     icon.classList.add("fa-plus");
     icon.classList.remove("fa-bars");
@@ -71,7 +67,6 @@ function showMenu(event) {
 function createGif(event) {
   if (icon.classList.contains('plus')) {
     window.location.href = "crear-gif.html"
-
   }
 }
 

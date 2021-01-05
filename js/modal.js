@@ -104,14 +104,11 @@ function backGif(gifs) {
 }
 
 function likeModalGif(event) {
-  // event.target.classList.toggle("fas");
   let tempGif = [];
   let imgModal = document.getElementById("image-modal");
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
-  debugger
   let id = imgModal.dataset.id;
- console.log(event)
   tempGif.push({
     id: imgModal.dataset.id,
     url: imgModal.src,

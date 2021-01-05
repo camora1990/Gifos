@@ -51,7 +51,6 @@ function clearInput(event) {
   marginSearch.classList.add("hidden");
   suggestions.classList.add("hidden");
   document.querySelector(".main p").style.display = "block";
-  // document.querySelector(".search-result__title").innerHTML = "";
 }
 
 async function suggestionResult(event) {
@@ -229,7 +228,6 @@ function searchLike(event) {
 function searchDownload(event) {
   let url =
     event.target.parentNode.parentElement.childNodes[9].attributes.src.value;
-  //called of globals
   downloadGif(url);
 }
 

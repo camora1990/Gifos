@@ -174,7 +174,6 @@ function favoritiesLike(event) {
 function favoritiesDownload(event) {
   let url =
     event.target.parentNode.parentElement.childNodes[9].attributes.src.value;
-  //called of globals
   downloadGif(url);
 }
 

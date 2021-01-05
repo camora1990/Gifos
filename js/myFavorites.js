@@ -6,21 +6,22 @@ var paginacionFavorites = 0;
 swFavorites = true;
 var favoriteGifs = JSON.parse(localStorage.getItem("favorites"));
 
-
-
-
-
 favoritesMenu.style.color = "#9CAFC3";
 function addFavorites() {
-
   if (favoriteGifs.length > 0) {
-    seeMoreFavorites.addEventListener('click', seeMoreGifs)
+    seeMoreFavorites.addEventListener("click", seeMoreGifs);
     myFavoritesEmpty.style.display = "none";
     containerFavoriteGifs.classList.remove("hidden");
-    for (let index = paginacionFavorites; index < favoriteGifs.length; index++) {
+    for (
+      let index = paginacionFavorites;
+      index < favoriteGifs.length;
+      index++
+    ) {
       if ((index + 1) % 12 == 0) {
-        paginacionFavorites = index + 1
-        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(favoriteGifs[index]);
+        paginacionFavorites = index + 1;
+        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(
+          favoriteGifs[index]
+        );
         if (paginacionFavorites < favoriteGifs.length) {
           seeMoreFavorites.style.display = "block";
         } else {
@@ -28,10 +29,10 @@ function addFavorites() {
         }
         break;
       } else {
-        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(favoriteGifs[index]);
-        
+        containerFavoriteGifs.innerHTML += createTemplateFavoriteGifs(
+          favoriteGifs[index]
+        );
       }
-      
     }
   } else {
     myFavoritesEmpty.style.display = "block";
@@ -40,7 +41,7 @@ function addFavorites() {
   }
 }
 
-addFavorites()
+addFavorites();
 
 function createTemplateFavoriteGifs(gifs) {
   return `<div class="my-favorities__result--item" data-id="${gifs.id}" onclick="favoritiesExpandMobile(event)" onmouseenter="favoritiesMouseOver(event)" onmouseleave="favoritiesMouseLeave(event)">
@@ -65,9 +66,11 @@ function createTemplateFavoriteGifs(gifs) {
 }
 
 function seeMoreGifs(event) {
-  addFavorites()
-  let tempcontainerFavoriteGifs = document.querySelector(".my-favorities__result");
-  if (containerFavoriteGifs.children.length == favoriteGifs.length ) {
+  addFavorites();
+  let tempcontainerFavoriteGifs = document.querySelector(
+    ".my-favorities__result"
+  );
+  if (containerFavoriteGifs.children.length == favoriteGifs.length) {
     seeMoreFavorites.style.display = "none";
   } else {
     seeMoreFavorites.style.display = "block";
@@ -174,7 +177,6 @@ function favoritiesLike(event) {
 function favoritiesDownload(event) {
   let url =
     event.target.parentNode.parentElement.childNodes[9].attributes.src.value;
-  //called of globals
   downloadGif(url);
 }
 

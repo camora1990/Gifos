@@ -1,3 +1,10 @@
+window.addEventListener("load", () => {
+  
+});
+
+
+
+
 const api_key = "vhJ8PRnNPlfioc3JHjAskmPh3GdPK2J1";
 var localTrendingGifs = [];
 var swTrending = false;

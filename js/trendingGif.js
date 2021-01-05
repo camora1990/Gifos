@@ -79,7 +79,6 @@ function validationMobile(event) {
 function download(event) {
   let url =
     event.target.parentNode.parentElement.childNodes[9].attributes.src.value;
-  //called of globals
   downloadGif(url);
 }
 
@@ -113,7 +112,7 @@ function expand(event) {
 }
 
 function like(event) {
-  debugger
+  debugger;
   let id = event.target.parentNode.parentElement.dataset.id;
   let tempGif = localTrendingGifs.find((data) => data.id === id);
   let gif = [
@@ -121,11 +120,11 @@ function like(event) {
       id: tempGif.id,
       url: tempGif.images.original.url,
       title: tempGif.title,
-      user: tempGif.username
+      user: tempGif.username,
     },
   ];
-  if (swFavorites ) {
-    validateMyFavoriteGifs(event.target.classList,gif,id)
+  if (swFavorites) {
+    validateMyFavoriteGifs(event.target.classList, gif, id);
   }
   favoriteGif(id, gif, event);
 }

@@ -12,13 +12,13 @@ const step3 = document.querySelector(".video-steps__numbers--3");
 const timer = document.querySelector(".video-steps__timer");
 const upload = document.getElementById("upload");
 const loading = document.querySelector(".loading");
+const newGif = document.getElementById("new");
 
 var localStream;
 var startTimer = false;
 var formatImg;
 let recorder;
-swCreate = true
-
+swCreate = true;
 
 if (
   JSON.parse(localStorage.getItem("myGifs")) === null ||
@@ -30,6 +30,7 @@ if (
 upload.addEventListener("click", uploadGifs);
 record.addEventListener("click", startRecord);
 start.addEventListener("click", startCreation);
+newGif.addEventListener("click", createNewGif);
 
 footer.classList.add("footer-fixed");
 iconMenu.parentNode.style.backgroundColor = "#9CAFC3";
@@ -175,53 +176,67 @@ function stopRecordingCallback() {
   recorder = null;
 }
 
+function createNewGif(event) {
+  let preview = document.getElementById("preview");
+  let loadingContainer = document.querySelector(".loading__container");
+
+  record.innerHTML = "GRABAR";
+  newGif.style.display = "none";
+  record.style.display = "block";
+  step2.classList.add("step-selected");
+  step3.classList.remove("step-selected");
+  preview.style.display = "none";
+  loading.style.display = 'none'
+  loadingContainer.children[1].innerHTML = "Estamos subiendo tu GIFO";
+  loadingContainer.children[0].src = "assets/img/Spinner-1s-200px.svg";
+  video.style.display = 'flex'
+  document.querySelector(".video-steps__timer").innerHTML = "00:00:00";
+}
+
 async function uploadGifs(params) {
   loading.style.display = "flex";
   step2.classList.remove("step-selected");
   step3.classList.add("step-selected");
   timer.style.display = "none";
-  let loadingContainer = document.querySelector('.loading__container')
-  let data = await load()
+  let loadingContainer = document.querySelector(".loading__container");
+  let data = await load();
   if (data.meta.status != 200) {
-    Error
-    loadingContainer.children[0].src = "assets/img/Error.svg"
-    loadingContainer.children[1].innerHTML = 'ERROR al cargar GIFO'
+    Error;
+    loadingContainer.children[0].src = "assets/img/Error.svg";
+    loadingContainer.children[1].innerHTML = "ERROR al cargar GIFO";
   } else {
-    debugger
-    const idGif = data.data.id
-    await getGifsDetails(idGif)
-    loadingContainer.children[0].src = "assets/img/ok.svg"
-    loadingContainer.children[1].innerHTML = 'GIFO subido con éxito'
-
+    const idGif = data.data.id;
+    await getGifsDetails(idGif);
+    loadingContainer.children[0].src = "assets/img/ok.svg";
+    loadingContainer.children[1].innerHTML = "GIFO subido con éxito";
+    newGif.style.display = "block";
+    upload.style.removeProperty("display");
   }
 }
 
-
-async function load (params) {
+async function load(params) {
   let res = await fetch(`${urlApiUpload}?api_key=${api_key}`, {
     method: "POST",
     body: formatImg,
-  }).catch(()=>{
-    Error
-    loadingContainer.children[0].src = "assets/img/Error.svg"
-    loadingContainer.children[1].innerHTML = 'ERROR al cargar GIFO'
-  })
-  let data = await res.json()
-  return data
+  }).catch(() => {
+    Error;
+    loadingContainer.children[0].src = "assets/img/Error.svg";
+    loadingContainer.children[1].innerHTML = "ERROR al cargar GIFO";
+  });
+  let data = await res.json();
+  return data;
 }
 
 async function getGifsDetails(id) {
-  debugger
-  let url = `https://api.giphy.com/v1/gifs/${id}?`
-  let details = await getData(url, api_key) 
-  console.log(details)
-  let temMyGifs = JSON.parse(localStorage.getItem("myGifs"))
+  let url = `https://api.giphy.com/v1/gifs/${id}?`;
+  let details = await getData(url, api_key);
+  let temMyGifs = JSON.parse(localStorage.getItem("myGifs"));
+
   temMyGifs.push({
     id: details.data.id,
-      url: details.data.images.original.url,
-      title: details.data.title,
-      user: details.data.username
-  })
+    url: details.data.images.original.url,
+    title: details.data.title,
+    user: details.data.username,
+  });
   localStorage.setItem("myGifs", JSON.stringify(temMyGifs));
-
 }
