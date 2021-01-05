@@ -128,7 +128,6 @@ body {
     display: none;
   }
   .header__add {
-    display: none;
     margin-right: 5%;
   }
 }
@@ -1236,6 +1235,9 @@ body {
   }
   .my-favorities__empty img {
     margin-top: 46px;
+  }
+  .my-favorities__empty p {
+    width: 90%;
   }
   .my-favorities__result {
     grid-template-columns: repeat(2, 1fr);
