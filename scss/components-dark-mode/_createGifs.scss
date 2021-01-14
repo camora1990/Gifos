@@ -54,6 +54,44 @@
       border-bottom: 1px solid $secundary-color;
       border-right: 1px solid $secundary-color;
     }
+    &--preferences{
+      display: none;
+      position: absolute;
+      top: 12%;
+      right: 16%;
+      z-index: 3;
+      &--download{
+        cursor: pointer;
+        opacity: .7;
+        display: grid;
+        place-items: center;
+        border-radius: 6px;
+        width: 32px;
+        height: 32px;
+        background-color: $primary-color;
+        color: #572ee5;
+        margin-right: 10px;
+      }
+      &--enlace{
+        cursor: pointer;
+        opacity: .7;
+
+        display: grid;
+        place-items: center;
+        border-radius: 6px;
+        width: 32px;
+        height: 32px;
+        background-color: $primary-color;
+        color: #572ee5;
+      }
+      &--download:hover{
+        opacity: 1;
+      }
+      &--enlace:hover{
+        opacity: 1;
+        
+      }
+    }
     &--step0 {
       margin: 138px auto;
       width: 80%;

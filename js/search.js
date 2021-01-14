@@ -6,6 +6,7 @@ const suggestions = document.getElementById("suggestions");
 const urlApiSugestion = "https://api.giphy.com/v1/tags/related/";
 const urlApiSearch = "https://api.giphy.com/v1/gifs/search";
 const seeMore = document.getElementById("see-more");
+const itemsSugestion = document.querySelectorAll("#suggestions span")
 var localDataSearch;
 var paginacion = 0;
 
@@ -63,13 +64,15 @@ async function suggestionResult(event) {
 }
 
 function selectSugestion(event) {
+ 
+  console.log(event)
   let searchResul = document.querySelector(".search-result");
   searchResul.style.display = "block";
   let marginSearch = document.querySelector(".main__search--margin");
-
-  search.value = event.target.children[1].innerText;
+  let result = event.target.localName!="span" || event.target.localName!="i" ?event.target.parentNode.children[1].innerText:event.target.children[1].innerText
+  search.value = result
   document.querySelector(".search-result__title").innerHTML =
-    event.target.children[1].innerHTML;
+  result;
   suggestions.classList.toggle("hidden");
   marginSearch.classList.toggle("hidden");
   searchGifs(search.value);

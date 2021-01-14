@@ -13,7 +13,11 @@ const timer = document.querySelector(".video-steps__timer");
 const upload = document.getElementById("upload");
 const loading = document.querySelector(".loading");
 const newGif = document.getElementById("new");
+const download = document.getElementById("download")
+const link = document.getElementById("link")
+const preferences = document.getElementById("preferences")
 
+var urlGif;
 var localStream;
 var startTimer = false;
 var formatImg;
@@ -27,6 +31,8 @@ if (
   localStorage.setItem("myGifs", JSON.stringify([]));
 }
 
+download.addEventListener("click", downloadGifo)
+link.addEventListener("click", copyLink)
 upload.addEventListener("click", uploadGifs);
 record.addEventListener("click", startRecord);
 start.addEventListener("click", startCreation);
@@ -80,6 +86,18 @@ function handleSuccess(stream) {
   step2.classList.add("step-selected");
 }
 
+function downloadGifo(event) {
+  downloadGif(urlGif)
+}
+function copyLink(event) {
+  let aux = document.createElement("input")
+  aux.value = urlGif
+  document.body.appendChild(aux)
+  aux.select()
+  document.execCommand("copy")
+  document.body.removeChild(aux)
+}
+
 function startRecord(event) {
   timer.style.display = "block";
   startTimer = !startTimer;
@@ -100,6 +118,7 @@ function startRecord(event) {
   }
   initRecording();
 }
+
 
 function cronometro() {
   let seconds = 0;
@@ -179,6 +198,7 @@ function stopRecordingCallback() {
 function createNewGif(event) {
   let preview = document.getElementById("preview");
   let loadingContainer = document.querySelector(".loading__container");
+  preferences.style.display = "none"
 
   record.innerHTML = "GRABAR";
   newGif.style.display = "none";
@@ -211,6 +231,7 @@ async function uploadGifs(params) {
     loadingContainer.children[1].innerHTML = "GIFO subido con éxito";
     newGif.style.display = "block";
     upload.style.removeProperty("display");
+    preferences.style.display = "flex"
   }
 }
 
@@ -231,7 +252,7 @@ async function getGifsDetails(id) {
   let url = `https://api.giphy.com/v1/gifs/${id}?`;
   let details = await getData(url, api_key);
   let temMyGifs = JSON.parse(localStorage.getItem("myGifs"));
-
+  urlGif = details.data.images.original.url
   temMyGifs.push({
     id: details.data.id,
     url: details.data.images.original.url,

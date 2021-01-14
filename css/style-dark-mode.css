@@ -1295,6 +1295,42 @@ body {
   border-bottom: 1px solid #50e3c2;
   border-right: 1px solid #50e3c2;
 }
+.video-container__item-center--preferences {
+  display: none;
+  position: absolute;
+  top: 12%;
+  right: 16%;
+  z-index: 3;
+}
+.video-container__item-center--preferences--download {
+  cursor: pointer;
+  opacity: 0.7;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  color: #572ee5;
+  margin-right: 10px;
+}
+.video-container__item-center--preferences--enlace {
+  cursor: pointer;
+  opacity: 0.7;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  color: #572ee5;
+}
+.video-container__item-center--preferences--download:hover {
+  opacity: 1;
+}
+.video-container__item-center--preferences--enlace:hover {
+  opacity: 1;
+}
 .video-container__item-center--step0 {
   margin: 138px auto;
   width: 80%;
