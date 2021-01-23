@@ -264,7 +264,8 @@ function searchExpand(event) {
 }
 
 function searchExpandMobile(event) {
-  console.log(event);
+  
+  
   swTrending = false;
   swSearch = true;
   let overlay = document.querySelector(".overlay");

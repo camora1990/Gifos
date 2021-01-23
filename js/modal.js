@@ -21,29 +21,41 @@ function closeModalGif(event) {
 }
 
 function nextModalGif(event) {
+  let imgMOdalId = document.querySelector("#image-modal").dataset.id;
   if (swSearch) {
+    positionGifs = localDataSearch.findIndex((e) => e.id === imgMOdalId);
     nextGif(localDataSearch);
   } else if (swTrending) {
+    positionGifs = localTrendingGifs.findIndex((e) => e.id === imgMOdalId);
     nextGif(localTrendingGifs);
-  } else if(swFavorites){
-    let tempFavorites = JSON.parse(localStorage.getItem("favorites"))
+  } else if (swFavorites) {
+    let tempFavorites = JSON.parse(localStorage.getItem("favorites"));
+    positionGifs = tempFavorites.findIndex((e) => e.id === imgMOdalId);
     nextGif(tempFavorites);
-  }else {
-    let tempmyGifs = JSON.parse(localStorage.getItem("myGifs"))
+  } else {
+    let tempmyGifs = JSON.parse(localStorage.getItem("myGifs"));
+    positionGifs = tempmyGifs.findIndex((e) => e.id === imgMOdalId);
     nextGif(tempmyGifs);
   }
 }
 
 function backMoadalGif(event) {
+  let imgMOdalId = document.querySelector("#image-modal").dataset.id;
   if (swSearch) {
-    nextGif(localDataSearch);
+    positionGifs = localDataSearch.findIndex((e) => e.id === imgMOdalId);
+    backGif(localDataSearch);
   } else if (swTrending) {
-    nextGif(localTrendingGifs);
-  } else if(swFavorites){
-    let tempFavorites = JSON.parse(localStorage.getItem("favorites"))
+    positionGifs = localTrendingGifs.findIndex((e) => e.id === imgMOdalId);
+    backGif(localTrendingGifs);
+  } else if (swFavorites) {
+    let tempFavorites = JSON.parse(localStorage.getItem("favorites"));
+    positionGifs = tempFavorites.findIndex((e) => e.id === imgMOdalId);
+
     backGif(tempFavorites);
-  }else{
-    let tempmyGifs = JSON.parse(localStorage.getItem("myGifs"))
+  } else {
+    let tempmyGifs = JSON.parse(localStorage.getItem("myGifs"));
+    positionGifs = tempmyGifs.findIndex((e) => e.id === imgMOdalId);
+
     backGif(tempmyGifs);
   }
 }
@@ -53,11 +65,17 @@ function nextGif(gifs) {
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
   let modalLike = document.getElementById("modal-like");
-  if (positionGifs < gifs.length && gifs.length > positionGifs+1) {
+  if (positionGifs < gifs.length && gifs.length > positionGifs + 1) {
     positionGifs++;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
-    imgModal.src = swFavorites || swMyGifs?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
-    user.innerHTML = swFavorites || swMyGifs?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
+    imgModal.src =
+      swFavorites || swMyGifs
+        ? `${gifs[positionGifs].url}`
+        : `${gifs[positionGifs].images.original.url}`;
+    user.innerHTML =
+      swFavorites || swMyGifs
+        ? `${gifs[positionGifs].user}`
+        : `${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
     modalLike.classList.remove("far");
@@ -74,9 +92,8 @@ function nextGif(gifs) {
   }
 }
 
-
-
 function backGif(gifs) {
+
   let imgModal = document.getElementById("image-modal");
   let user = document.querySelector(".modal__information--user");
   let title = document.querySelector(".modal__information--title");
@@ -85,8 +102,14 @@ function backGif(gifs) {
   if (positionGifs > 0) {
     positionGifs--;
     imgModal.dataset.id = `${gifs[positionGifs].id}`;
-    imgModal.src = swFavorites || swMyGifs?`${gifs[positionGifs].url}`:`${gifs[positionGifs].images.original.url}`;
-    user.innerHTML = swFavorites || swMyGifs?`${gifs[positionGifs].user}`:`${gifs[positionGifs].username}`;
+    imgModal.src =
+      swFavorites || swMyGifs
+        ? `${gifs[positionGifs].url}`
+        : `${gifs[positionGifs].images.original.url}`;
+    user.innerHTML =
+      swFavorites || swMyGifs
+        ? `${gifs[positionGifs].user}`
+        : `${gifs[positionGifs].username}`;
     title.innerHTML = `${gifs[positionGifs].title}`;
     modalLike.classList.remove("fas");
     modalLike.classList.remove("far");
@@ -116,7 +139,7 @@ function likeModalGif(event) {
     user: title.textContent,
   });
   if (swFavorites) {
-    validateMyFavoriteGifs(event.target.classList, tempGif, id)
+    validateMyFavoriteGifs(event.target.classList, tempGif, id);
   }
   favoriteGif(id, tempGif, event);
 }

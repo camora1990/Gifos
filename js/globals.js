@@ -37,7 +37,7 @@ async function downloadGif(imgUrl) {
 }
 
 (async function trend() {
-  debugger
+  
   let urltemp = "https://api.giphy.com/v1/trending/searches?";
   let dat = await getData(urltemp, api_key);
   if (dat.data.length > 0) {
