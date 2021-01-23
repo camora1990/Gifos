@@ -6,7 +6,7 @@ const suggestions = document.getElementById("suggestions");
 const urlApiSugestion = "https://api.giphy.com/v1/tags/related/";
 const urlApiSearch = "https://api.giphy.com/v1/gifs/search";
 const seeMore = document.getElementById("see-more");
-const itemsSugestion = document.querySelectorAll("#suggestions span")
+const itemsSugestion = document.querySelectorAll("#suggestions span");
 var localDataSearch;
 var paginacion = 0;
 
@@ -64,15 +64,16 @@ async function suggestionResult(event) {
 }
 
 function selectSugestion(event) {
- 
-  console.log(event)
+  console.log(event);
   let searchResul = document.querySelector(".search-result");
   searchResul.style.display = "block";
   let marginSearch = document.querySelector(".main__search--margin");
-  let result = event.target.localName!="span" || event.target.localName!="i" ?event.target.parentNode.children[1].innerText:event.target.children[1].innerText
-  search.value = result
-  document.querySelector(".search-result__title").innerHTML =
-  result;
+  let result =
+    event.target.localName != "span" || event.target.localName != "i"
+      ? event.target.parentNode.children[1].innerText
+      : event.target.children[1].innerText;
+  search.value = result;
+  document.querySelector(".search-result__title").innerHTML = result;
   suggestions.classList.toggle("hidden");
   marginSearch.classList.toggle("hidden");
   searchGifs(search.value);
@@ -87,7 +88,7 @@ function searchEnter(event) {
     suggestions.classList.toggle("hidden");
     marginSearch.classList.toggle("hidden");
     searchGifs(event.target.value);
-    seeMore.style.display = 'none'
+    seeMore.style.display = "none";
   }
 }
 
@@ -138,7 +139,7 @@ async function searchGifs(value) {
   } else {
     containeSearch.classList.add("hidden");
     containeSearchWrong.classList.remove("hidden");
-    seeMore.classList.add('hidden')
+    seeMore.classList.add("hidden");
   }
   document.querySelector(".main p").style.display = "block";
 }
@@ -262,9 +263,8 @@ function searchExpand(event) {
   overlay.style.animation = "modalIn .8s forwards";
 }
 
-
 function searchExpandMobile(event) {
-  console.log(event)
+  console.log(event);
   swTrending = false;
   swSearch = true;
   let overlay = document.querySelector(".overlay");
@@ -291,5 +291,14 @@ function searchExpandMobile(event) {
 }
 
 function seeMoreGifs(event) {
-  addSearchGif(localDataSearch)
+  addSearchGif(localDataSearch);
+}
+
+function getTrend(event) {
+
+  searchGifs(event.target.innerHTML);
+  document.querySelector(".search-result__title").innerHTML =
+    event.target.innerHTML;
+  let searchResul = document.querySelector(".search-result");
+  searchResul.style.display = "block";
 }

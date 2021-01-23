@@ -319,10 +319,16 @@ body {
   color: #572ee5;
   font-weight: 500;
 }
-.main p span {
+.main p .trending-now__element {
+  cursor: pointer;
+}
+.main p .trend {
   font-size: 1.125em;
   margin-bottom: 7px;
   font-weight: 700;
+}
+.main p .trending-now__element:hover {
+  border-bottom: 1px solid #572ee5;
 }
 
 @media only screen and (max-width: 1200px) {

@@ -115,11 +115,18 @@
     font-size: $medium-font-size-desktop;
     color: $primary-color;
     font-weight: 500;
-    span{
+    .trending-now__element{
+      cursor: pointer;
+    }
+    .trend {
       font-size: $normal-font-size-desktop;
       margin-bottom: 7px;
       font-weight: 700;
     }
+    .trending-now__element:hover{
+      border-bottom: 1px solid $primary-color;
+    }
+  
   }
 }
 
